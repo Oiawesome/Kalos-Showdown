@@ -13,7 +13,7 @@ exports.BattleMovedex = {
                 priority: 0,
                 multihit: [3,3],
                 secondary: {
-                        chance: 20,
+                        chance: 7.1682233277,
                         onHit: function(target, source) {
                                 var result = this.random(3);
                                 if (result===0) {
