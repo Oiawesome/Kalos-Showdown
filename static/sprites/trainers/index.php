@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-26211653-1']);
+	_gaq.push(['_setDomainName', 'pokemonshowdown.com']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<p>
+	Your avatar can be changed using the Options menu (it looks like a gear) in the upper right of Pokemon Showdown.
+</p>
+<?php die(); ?>
+<ul>
+<?php
+
+for ($i=1;$i<=293;$i++)
+{
+?>
+	<li><img src="<?php echo $i?>.png" alt="" style="vertical-align:middle" /> Use this command: <code>/avatar <?php echo $i?></code>
+<?php
+}
