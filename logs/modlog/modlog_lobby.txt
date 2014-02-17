@@ -1,3 +1,7 @@
 [2014-02-17T04:00:01.706Z] (lobby) Oiawesome declared testing modlog
 [2014-02-17T04:18:02.071Z] (lobby) oiafk was promoted to Administrator by Oiawesome.
 [2014-02-17T04:20:10.024Z] (lobby) keep it playful was promoted to Moderator by Oiawesome.
+[2014-02-17T14:06:15.899Z] (lobby) adrian marin bh was promoted to Leader by Oiawesome.
+[2014-02-17T14:09:10.779Z] (lobby) (Oiawesome notes: lol)
+[2014-02-17T14:09:17.814Z] (lobby) (adrian marin bh notes: lmao)
+[2014-02-17T14:09:42.786Z] (lobby) (Oiawesome notes: this is /modnote it presents messages only auth can see and you can check these anytime in /modlog)
