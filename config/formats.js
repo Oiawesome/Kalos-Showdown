@@ -10,7 +10,7 @@ exports.Formats = [
 		name: "Kalos 2.0 OU",
 		section: "Kalos 2",
 
-                mode: 'kalos2',
+                mod: 'kalos2',
 		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
 		banlist: ['Uber', 'Soul Dew', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Genesect']
 	},
@@ -18,7 +18,7 @@ exports.Formats = [
 		name: "Kalos 2.0 Ubers",
 		section: "Kalos 2",
 
-                mode: 'kalos2',
+                mod: 'kalos2',
 		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
 		banlist: []
 	},
@@ -26,7 +26,7 @@ exports.Formats = [
 		name: "Kalos 2.0 LC",
 		section: "Kalos 2",
 
-                mode: 'kalos2',
+                mod: 'kalos2',
 		maxLevel: 5,
 		ruleset: ['Pokemon', 'Standard', 'Team Preview', 'Little Cup'],
 		banlist: ['Sonicboom', 'Dragon Rage', 'Scyther', 'Sneasel', 'Yanma', 'Tangela']
@@ -35,7 +35,7 @@ exports.Formats = [
 		name: "Kalos 2.0 Doubles",
 		section: "Kalos 2",
 
-                mode: 'kalos2',
+                mod: 'kalos2',
                 gameType: 'doubles',
 		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
 		banlist: ['Uber', 'Soul Dew', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Genesect']
@@ -44,7 +44,7 @@ exports.Formats = [
 		name: "Kalos 2.0 Triples [Dev]",
 		section: "Kalos 2",
 
-                mode: 'kalos2',
+                mod: 'kalos2',
                 gameType: 'doubles',
 		debug: true,
 		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
