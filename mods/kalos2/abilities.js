@@ -14,27 +14,21 @@ exports.BattleAbilities = {
                 rating: 0,
                 num: 118
         },
-	"corrosivepoison": {
-		desc: "This Pokemon has the ability to hit Steel-type Pokemon super effectively with Poison-type moves. Effectiveness of these moves takes into account the Steel-type Pokemon's other weaknesses and resistances.",
-		shortDesc: "This Pokemon can hit Steel-types super effectively with Poison-type moves.",		
-		onModifyMove: function(move) {
-			if (move.type in {'Poison':1}) {
-				move.affectedByImmunities = false;
-				if (!this.data.TypeChart[tarType]) continue;
-				if (tarType === 'Steel') {
-					totalTypeMod++;
-					continue;
-				}
-				var typeMod = this.data.TypeChart[tarType].damageTaken[type];
-				if (typeMod === 1) { // super-effective
-					totalTypeMod++;
-				}
-				if (typeMod === 2) { // resist
-					totalTypeMod--;
-				}
-			}
-			return totalTypeMod;
-		},
+        "corrosivepoison": {
+                desc: "This Pokemon has the ability to hit Steel-type Pokemon super effectively with Poison-type moves. Effectiveness of these moves takes into account the Steel-type Pokemon's other weaknesses and resistances.",
+                shortDesc: "This Pokemon can hit Steel-types super effectively with Poison-type moves.",               
+                onModifyMove: function(move) {
+                        if (move.type in {'Poison':1}) {
+                                move.affectedByImmunities = false;
+                        }
+                },
+                onModifyDamage: function(damage, source, target, move) {
+                        if (target.type === 'Steel' && move.type === 'Poison') {
+                                this.debug('Corrosive Poison effectiveness mod');
+                                var typeMod = this.getEffectiveness('Poison', target);
+                                typeMod = typeMod + 1;
+                        }
+                },
 		id: "corrosivepoison",
 		name: "Corrosive Poison",
 		rating: 3,
