@@ -1,7 +1,7 @@
 /*
 
 License: MIT License
-  <https://github.com/Zarel/Pokemon-Showdown/blob/master/LICENSE>
+<https://github.com/Zarel/Pokemon-Showdown/blob/master/LICENSE>
 
 */
 
@@ -24,55 +24,55 @@ text = text.split("\n");
 
 for (var i=0; i<text.length; i++)
 {
-	var line = text[i].split(' ');
-	if (!text[i].length) continue;
-	if (!exports.BattleLearnsets[POPokemon[line[0]].replace(/ /g,'')])
-	{
-		exports.BattleLearnsets[POPokemon[line[0]].replace(/ /g,'')] = {};
-	}
-	var poke = exports.BattleLearnsets[POPokemon[line[0]].replace(/ /g,'')];
-	for (var j=1; j<line.length; j++)
-	{
-		if (!poke.learnset) poke.learnset = {};
-		var move = POMoves[line[j]].replace(/ /g,'');
-		poke.learnset[move] = '4M';
-	}
+var line = text[i].split(' ');
+if (!text[i].length) continue;
+if (!exports.BattleLearnsets[POPokemon[line[0]].replace(/ /g,'')])
+{
+exports.BattleLearnsets[POPokemon[line[0]].replace(/ /g,'')] = {};
+}
+var poke = exports.BattleLearnsets[POPokemon[line[0]].replace(/ /g,'')];
+for (var j=1; j<line.length; j++)
+{
+if (!poke.learnset) poke.learnset = {};
+var move = POMoves[line[j]].replace(/ /g,'');
+poke.learnset[move] = '4M';
+}
 }
 
 */
 
 // ES5 indexOf
 if (!Array.prototype.indexOf) {
-	Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
-		"use strict";
-		if (this == null) {
-			throw new TypeError();
-		}
-		var t = Object(this);
-		var len = t.length >>> 0;
-		if (len === 0) {
-			return -1;
-		}
-		var n = 0;
-		if (arguments.length > 1) {
-			n = Number(arguments[1]);
-			if (n != n) { // shortcut for verifying if it's NaN
-				n = 0;
-			} else if (n != 0 && n != Infinity && n != -Infinity) {
-				n = (n > 0 || -1) * Math.floor(Math.abs(n));
-			}
-		}
-		if (n >= len) {
-			return -1;
-		}
-		var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
-		for (; k < len; k++) {
-			if (k in t && t[k] === searchElement) {
-				return k;
-			}
-		}
-		return -1;
-	}
+Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
+"use strict";
+if (this == null) {
+throw new TypeError();
+}
+var t = Object(this);
+var len = t.length >>> 0;
+if (len === 0) {
+return -1;
+}
+var n = 0;
+if (arguments.length > 1) {
+n = Number(arguments[1]);
+if (n != n) { // shortcut for verifying if it's NaN
+n = 0;
+} else if (n != 0 && n != Infinity && n != -Infinity) {
+n = (n > 0 || -1) * Math.floor(Math.abs(n));
+}
+}
+if (n >= len) {
+return -1;
+}
+var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
+for (; k < len; k++) {
+if (k in t && t[k] === searchElement) {
+return k;
+}
+}
+return -1;
+}
 }
 
 // MD5 minified
@@ -87,847 +87,848 @@ b=m(b,c,d,e,g[f+12],6,1700485571),e=m(e,b,c,d,g[f+3],10,2399980690),d=m(d,e,b,c,
 var colorCache = {};
 
 function hashColor(name) {
-	if (colorCache[name]) return colorCache[name];
-	var hash;
-	if (window.Config && Config.customcolors && Config.customcolors[name]) {
-		if (Config.customcolors[name].color) {
-			return colorCache[name] = 'color:' + Config.customcolors[name].color + ';';
-		}
-		hash = MD5(Config.customcolors[name]);
-	} else {
-		hash = MD5(name);
-	}
-	var H = parseInt(hash.substr(4, 4), 16) % 360;
-	var S = parseInt(hash.substr(0, 4), 16) % 50 + 50;
-	var L = parseInt(hash.substr(8, 4), 16) % 20 + 25;
-	colorCache[name] = "color:hsl(" + H + "," + S + "%," + L + "%);";
-	return colorCache[name];
+if (colorCache[name]) return colorCache[name];
+var hash;
+if (window.Config && Config.customcolors && Config.customcolors[name]) {
+if (Config.customcolors[name].color) {
+return colorCache[name] = 'color:' + Config.customcolors[name].color + ';';
+}
+hash = MD5(Config.customcolors[name]);
+} else {
+hash = MD5(name);
+}
+var H = parseInt(hash.substr(4, 4), 16) % 360;
+var S = parseInt(hash.substr(0, 4), 16) % 50 + 50;
+var L = parseInt(hash.substr(8, 4), 16) % 20 + 25;
+colorCache[name] = "color:hsl(" + H + "," + S + "%," + L + "%);";
+return colorCache[name];
 }
 
 function toId(text) {
-	text = text || '';
-	if (typeof text === 'number') text = ''+text;
-	if (typeof text !== 'string') return toId(text && text.id);
-	return text.toLowerCase().replace(/[^a-z0-9]+/g, '');
+text = text || '';
+if (typeof text === 'number') text = ''+text;
+if (typeof text !== 'string') return toId(text && text.id);
+return text.toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
 
 function toUserid(text) {
-	text = text || '';
-	if (typeof text === 'number') text = ''+text;
-	if (typeof text !== 'string') return ''; //???
-	return text.toLowerCase().replace(/[^a-z0-9]+/g, '');
+text = text || '';
+if (typeof text === 'number') text = ''+text;
+if (typeof text !== 'string') return ''; //???
+return text.toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
 
 // miscellaneous things too minor to deserve their own resource file
 var BattleNatures = {
-	Adamant: {
-		plus: 'atk',
-		minus: 'spa'
-	},
-	Bashful: {},
-	Bold: {
-		plus: 'def',
-		minus: 'atk'
-	},
-	Brave: {
-		plus: 'atk',
-		minus: 'spe'
-	},
-	Calm: {
-		plus: 'spd',
-		minus: 'atk'
-	},
-	Careful: {
-		plus: 'spd',
-		minus: 'spa'
-	},
-	Docile: {},
-	Gentle: {
-		plus: 'spd',
-		minus: 'def'
-	},
-	Hardy: {},
-	Hasty: {
-		plus: 'spe',
-		minus: 'def'
-	},
-	Impish: {
-		plus: 'def',
-		minus: 'spa'
-	},
-	Jolly: {
-		plus: 'spe',
-		minus: 'spa'
-	},
-	Lax: {
-		plus: 'def',
-		minus: 'spd'
-	},
-	Lonely: {
-		plus: 'atk',
-		minus: 'def'
-	},
-	Mild: {
-		plus: 'spa',
-		minus: 'def'
-	},
-	Modest: {
-		plus: 'spa',
-		minus: 'atk'
-	},
-	Naive: {
-		plus: 'spe',
-		minus: 'spd'
-	},
-	Naughty: {
-		plus: 'atk',
-		minus: 'spd'
-	},
-	Quiet: {
-		plus: 'spa',
-		minus: 'spe'
-	},
-	Quirky: {},
-	Rash: {
-		plus: 'spa',
-		minus: 'spd'
-	},
-	Relaxed: {
-		plus: 'def',
-		minus: 'spe'
-	},
-	Sassy: {
-		plus: 'spd',
-		minus: 'spe'
-	},
-	Serious: {},
-	Timid: {
-		plus: 'spe',
-		minus: 'atk'
-	}
+Adamant: {
+plus: 'atk',
+minus: 'spa'
+},
+Bashful: {},
+Bold: {
+plus: 'def',
+minus: 'atk'
+},
+Brave: {
+plus: 'atk',
+minus: 'spe'
+},
+Calm: {
+plus: 'spd',
+minus: 'atk'
+},
+Careful: {
+plus: 'spd',
+minus: 'spa'
+},
+Docile: {},
+Gentle: {
+plus: 'spd',
+minus: 'def'
+},
+Hardy: {},
+Hasty: {
+plus: 'spe',
+minus: 'def'
+},
+Impish: {
+plus: 'def',
+minus: 'spa'
+},
+Jolly: {
+plus: 'spe',
+minus: 'spa'
+},
+Lax: {
+plus: 'def',
+minus: 'spd'
+},
+Lonely: {
+plus: 'atk',
+minus: 'def'
+},
+Mild: {
+plus: 'spa',
+minus: 'def'
+},
+Modest: {
+plus: 'spa',
+minus: 'atk'
+},
+Naive: {
+plus: 'spe',
+minus: 'spd'
+},
+Naughty: {
+plus: 'atk',
+minus: 'spd'
+},
+Quiet: {
+plus: 'spa',
+minus: 'spe'
+},
+Quirky: {},
+Rash: {
+plus: 'spa',
+minus: 'spd'
+},
+Relaxed: {
+plus: 'def',
+minus: 'spe'
+},
+Sassy: {
+plus: 'spd',
+minus: 'spe'
+},
+Serious: {},
+Timid: {
+plus: 'spe',
+minus: 'atk'
+}
 };
 var BattleStatIDs = {
-	HP: 'hp',
-	hp: 'hp',
-	Atk: 'atk',
-	atk: 'atk',
-	Def: 'def',
-	def: 'def',
-	SpA: 'spa',
-	SAtk: 'spa',
-	SpAtk: 'spa',
-	spa: 'spa',
-	SpD: 'spd',
-	SDef: 'spd',
-	SpDef: 'spd',
-	spd: 'spd',
-	Spe: 'spe',
-	Spd: 'spe',
-	spe: 'spe'
+HP: 'hp',
+hp: 'hp',
+Atk: 'atk',
+atk: 'atk',
+Def: 'def',
+def: 'def',
+SpA: 'spa',
+SAtk: 'spa',
+SpAtk: 'spa',
+spa: 'spa',
+SpD: 'spd',
+SDef: 'spd',
+SpDef: 'spd',
+spd: 'spd',
+Spe: 'spe',
+Spd: 'spe',
+spe: 'spe'
 };
 var BattlePOStatNames = { // PO style
-	hp: 'HP',
-	atk: 'Atk',
-	def: 'Def',
-	spa: 'SAtk',
-	spd: 'SDef',
-	spe: 'Spd'
+hp: 'HP',
+atk: 'Atk',
+def: 'Def',
+spa: 'SAtk',
+spd: 'SDef',
+spe: 'Spd'
 };
 var BattleStatNames = { // proper style
-	hp: 'HP',
-	atk: 'Atk',
-	def: 'Def',
-	spa: 'SpA',
-	spd: 'SpD',
-	spe: 'Spe'
+hp: 'HP',
+atk: 'Atk',
+def: 'Def',
+spa: 'SpA',
+spd: 'SpD',
+spe: 'Spe'
 };
 
 var baseSpeciesChart = {
-	'unown': 1,
-	'castform': 1,
-	'deoxys': 1,
-	'burmy': 1,
-	'wormadam': 1,
-	'cherrim': 1,
-	'shellos': 1,
-	'gastrodon': 1,
-	'rotom': 1,
-	'giratina': 1,
-	'arceus': 1,
-	'shaymin': 1,
-	'basculin': 1,
-	'darmanitan': 1,
-	'deerling': 1,
-	'sawsbuck': 1,
-	'meloetta': 1,
-	'genesect': 1,
-	'tornadus': 1,
-	'thundurus': 1,
-	'landorus': 1,
-	'kyurem': 1,
-	'keldeo': 1,
-	'aegislash': 1,
+'unown': 1,
+'castform': 1,
+'deoxys': 1,
+'burmy': 1,
+'wormadam': 1,
+'cherrim': 1,
+'shellos': 1,
+'gastrodon': 1,
+'rotom': 1,
+'giratina': 1,
+'arceus': 1,
+'shaymin': 1,
+'basculin': 1,
+'darmanitan': 1,
+'deerling': 1,
+'sawsbuck': 1,
+'meloetta': 1,
+'genesect': 1,
+'tornadus': 1,
+'thundurus': 1,
+'landorus': 1,
+'kyurem': 1,
+'keldeo': 1,
+'aegislash': 1,
+'gourgeist': 1,
 
-	// mega evolutions
-	'charizard': 1,
-	'mewtwo': 1
-	// others are hardcoded by ending with 'mega'
+// mega evolutions
+'charizard': 1,
+'mewtwo': 1
+// others are hardcoded by ending with 'mega'
 };
 
 var Tools = {
 
-	resourcePrefix: (function() {
-		var prefix = '';
-		if (document.location.protocol === 'file:') prefix = 'http:';
-		return prefix + '//play.pokemonshowdown.com/';
-	})(),
+resourcePrefix: (function() {
+var prefix = '';
+if (document.location.protocol === 'file:') prefix = 'http:';
+return prefix + '//play.pokemonshowdown.com/';
+})(),
 
-	resolveAvatar: function(avatar) {
-		var avatarnum = Number(avatar);
-		if (!isNaN(avatarnum)) {
-			// default avatars
-			return Tools.resourcePrefix + 'sprites/trainers/' + avatarnum + '.png';
-		}
-		if (avatar.charAt(0) === '#') {
-			return Tools.resourcePrefix + 'sprites/trainers/' + toId(avatar.substr(1)) + '.png';
-		}
-		if (window.Config && Config.server && Config.server.registered) {
-			// custom avatar served by the server
-			var protocol = (Config.server.port === 443) ? 'https' : 'http';
-			return protocol + '://' + Config.server.host + ':' + Config.server.port +
-				'/avatars/' + encodeURIComponent(avatar);
-		}
-		// just pick a random avatar
-		var sprites = [1, 2, 101, 102, 169, 170];
-		return Tools.resolveAvatar(sprites[Math.floor(Math.random() * sprites.length)]);
-	},
+resolveAvatar: function(avatar) {
+var avatarnum = Number(avatar);
+if (!isNaN(avatarnum)) {
+// default avatars
+return Tools.resourcePrefix + 'sprites/trainers/' + avatarnum + '.png';
+}
+if (avatar.charAt(0) === '#') {
+return Tools.resourcePrefix + 'sprites/trainers/' + toId(avatar.substr(1)) + '.png';
+}
+if (window.Config && Config.server && Config.server.registered) {
+// custom avatar served by the server
+var protocol = (Config.server.port === 443) ? 'https' : 'http';
+return protocol + '://' + Config.server.host + ':' + Config.server.port +
+'/avatars/' + encodeURIComponent(avatar);
+}
+// just pick a random avatar
+var sprites = [1, 2, 101, 102, 169, 170];
+return Tools.resolveAvatar(sprites[Math.floor(Math.random() * sprites.length)]);
+},
 
-	escapeFormat: function(formatid) {
-		if (window.BattleFormats && BattleFormats[formatid]) {
-			return Tools.escapeHTML(BattleFormats[formatid].name)
-		}
-		return Tools.escapeHTML(formatid);
-	},
+escapeFormat: function(formatid) {
+if (window.BattleFormats && BattleFormats[formatid]) {
+return Tools.escapeHTML(BattleFormats[formatid].name)
+}
+return Tools.escapeHTML(formatid);
+},
 
-	parseMessage: function(str, linkclass) {
-		str = Tools.escapeHTML(str);
-		// Don't format console commands (>>).
-		if (str.substr(0, 8) === '&gt;&gt;') return str;
-		// Don't format console results (<<).
-		if (str.substr(0, 8) === '&lt;&lt;') return str;
+parseMessage: function(str, linkclass) {
+str = Tools.escapeHTML(str);
+// Don't format console commands (>>).
+if (str.substr(0, 8) === '&gt;&gt;') return str;
+// Don't format console results (<<).
+if (str.substr(0, 8) === '&lt;&lt;') return str;
 
-		var options = Tools.prefs('chatformatting') || {};
+var options = Tools.prefs('chatformatting') || {};
 
-		// ``code``
-		str = str.replace(/\`\`([^< ]([^<`]*?[^< ])?)\`\`/g,
-				options.hidemonospace ? '$1' : '<code>$1</code>');
-		// ~~strikethrough~~
-		str = str.replace(/\~\~([^< ]([^<]*?[^< ])?)\~\~/g,
-				options.hidestrikethrough ? '$1' : '<s>$1</s>');
-		// linking of URIs
-		if (!options.hidelinks) {
-			var classbit = '';
-			if (linkclass) {
-				classbit = ' class="message-link-' + toId(linkclass) + '"';
-			}
-			str = str.replace(/(https?\:\/\/[a-z0-9-.]+(\:[0-9]+)?(\/([^\s]*[^\s?.,])?)?|[a-z0-9]([a-z0-9-\.]*[a-z0-9])?\.(com|org|net|edu|us)(\:[0-9]+)?((\/([^\s]*[^\s?.,])?)?|\b))/ig, function(uri) {
-				// Insert http:// before URIs without a URI scheme specified.
-				var fulluri = uri.replace(/^([a-z]*[^a-z:])/g, 'http://$1');
-				var onclick;
-				var r = new RegExp('^https?://' +
-					document.location.hostname.replace(/\./g, '\\.') +
-					'/([a-zA-Z0-9-]+)$');
-				var m = r.exec(fulluri);
-				if (m) {
-					onclick = "return selectTab('" + m[1] + "');";
-				} else {
-					var event;
-					if (Tools.interstice.isWhitelisted(fulluri)) {
-						event = 'External link';
-					} else {
-						event = 'Interstice link';
-						fulluri = Tools.escapeHTML(Tools.interstice.getURI(
-								Tools.unescapeHTML(fulluri)
-						));
-					}
-					onclick = 'if (window._gaq) _gaq.push([\'_trackEvent\', \'' +
-							event + '\', \'' + Tools.escapeQuotes(fulluri) + '\']);';
-				}
-				return '<a href="' + fulluri +
-					'" target="_blank" onclick="' + onclick + '"' + classbit +
-						'>' + uri + '</a>';
-			});
-			// google [blah]
-			// google[blah]
-			//   Google search for 'blah'
-			str = str.replace(/(\bgoogle ?\[([^\]<]+)\])/ig, function(p0, p1, p2) {
-				p2 = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p2)));
-				return '<a href="http://www.google.com/search?ie=UTF-8&q=' + p2 +
-					'" target="_blank"' + classbit + '>' + p1 + '</a>';
-			});
-			// gl [blah]
-			// gl[blah]
-			//   Google search for 'blah' and visit the first result ("I'm feeling lucky")
-			str = str.replace(/(\bgl ?\[([^\]<]+)\])/ig, function(p0, p1, p2) {
-				p2 = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p2)));
-				return '<a href="http://www.google.com/search?ie=UTF-8&btnI&q=' + p2 +
-					'" target="_blank"' + classbit + '>' + p1 + '</a>';
-			});
-			// wiki [blah]
-			//   Search Wikipedia for 'blah' (and visit the article for 'blah' if it exists)
-			str = str.replace(/(\bwiki ?\[([^\]<]+)\])/ig, function(p0, p1, p2) {
-				p2 = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p2)));
-				return '<a href="http://en.wikipedia.org/w/index.php?title=Special:Search&search=' +
-					p2 + '" target="_blank"' + classbit + '>' + p1 + '</a>';
-			});
-			// [[blah]]
-			//   Short form of gl[blah]
-			str = str.replace(/\[\[([^< ]([^<`]*?[^< ])?)\]\]/ig, function(p0, p1) {
-				var q = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p1)));
-				return '<a href="http://www.google.com/search?ie=UTF-8&btnI&q=' + q +
-					'" target="_blank"' + classbit + '>' + p1 +'</a>';
-			});
-		}
-		// __italics__
-		str = str.replace(/\_\_([^< ]([^<]*?[^< ])?)\_\_/g,
-				options.hideitalics ? '$1' : '<i>$1</i>');
-		// **bold**
-		str = str.replace(/\*\*([^< ]([^<]*?[^< ])?)\*\*/g,
-			options.hidebold ? '$1' : '<b>$1</b>');
+// ``code``
+str = str.replace(/\`\`([^< ]([^<`]*?[^< ])?)\`\`/g,
+options.hidemonospace ? '$1' : '<code>$1</code>');
+// ~~strikethrough~~
+str = str.replace(/\~\~([^< ]([^<]*?[^< ])?)\~\~/g,
+options.hidestrikethrough ? '$1' : '<s>$1</s>');
+// linking of URIs
+if (!options.hidelinks) {
+var classbit = '';
+if (linkclass) {
+classbit = ' class="message-link-' + toId(linkclass) + '"';
+}
+str = str.replace(/(https?\:\/\/[a-z0-9-.]+(\:[0-9]+)?(\/([^\s]*[^\s?.,])?)?|[a-z0-9]([a-z0-9-\.]*[a-z0-9])?\.(com|org|net|edu|us)(\:[0-9]+)?((\/([^\s]*[^\s?.,])?)?|\b))/ig, function(uri) {
+// Insert http:// before URIs without a URI scheme specified.
+var fulluri = uri.replace(/^([a-z]*[^a-z:])/g, 'http://$1');
+var onclick;
+var r = new RegExp('^https?://' +
+document.location.hostname.replace(/\./g, '\\.') +
+'/([a-zA-Z0-9-]+)$');
+var m = r.exec(fulluri);
+if (m) {
+onclick = "return selectTab('" + m[1] + "');";
+} else {
+var event;
+if (Tools.interstice.isWhitelisted(fulluri)) {
+event = 'External link';
+} else {
+event = 'Interstice link';
+fulluri = Tools.escapeHTML(Tools.interstice.getURI(
+Tools.unescapeHTML(fulluri)
+));
+}
+onclick = 'if (window._gaq) _gaq.push([\'_trackEvent\', \'' +
+event + '\', \'' + Tools.escapeQuotes(fulluri) + '\']);';
+}
+return '<a href="' + fulluri +
+'" target="_blank" onclick="' + onclick + '"' + classbit +
+'>' + uri + '</a>';
+});
+// google [blah]
+// google[blah]
+// Google search for 'blah'
+str = str.replace(/(\bgoogle ?\[([^\]<]+)\])/ig, function(p0, p1, p2) {
+p2 = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p2)));
+return '<a href="http://www.google.com/search?ie=UTF-8&q=' + p2 +
+'" target="_blank"' + classbit + '>' + p1 + '</a>';
+});
+// gl [blah]
+// gl[blah]
+// Google search for 'blah' and visit the first result ("I'm feeling lucky")
+str = str.replace(/(\bgl ?\[([^\]<]+)\])/ig, function(p0, p1, p2) {
+p2 = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p2)));
+return '<a href="http://www.google.com/search?ie=UTF-8&btnI&q=' + p2 +
+'" target="_blank"' + classbit + '>' + p1 + '</a>';
+});
+// wiki [blah]
+// Search Wikipedia for 'blah' (and visit the article for 'blah' if it exists)
+str = str.replace(/(\bwiki ?\[([^\]<]+)\])/ig, function(p0, p1, p2) {
+p2 = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p2)));
+return '<a href="http://en.wikipedia.org/w/index.php?title=Special:Search&search=' +
+p2 + '" target="_blank"' + classbit + '>' + p1 + '</a>';
+});
+// [[blah]]
+// Short form of gl[blah]
+str = str.replace(/\[\[([^< ]([^<`]*?[^< ])?)\]\]/ig, function(p0, p1) {
+var q = Tools.escapeHTML(encodeURIComponent(Tools.unescapeHTML(p1)));
+return '<a href="http://www.google.com/search?ie=UTF-8&btnI&q=' + q +
+'" target="_blank"' + classbit + '>' + p1 +'</a>';
+});
+}
+// __italics__
+str = str.replace(/\_\_([^< ]([^<]*?[^< ])?)\_\_/g,
+options.hideitalics ? '$1' : '<i>$1</i>');
+// **bold**
+str = str.replace(/\*\*([^< ]([^<]*?[^< ])?)\*\*/g,
+options.hidebold ? '$1' : '<b>$1</b>');
 
-		if (!options.hidespoiler) {
-			var spoilerIndex = str.toLowerCase().indexOf('spoiler:');
-			if (spoilerIndex < 0) spoilerIndex = str.toLowerCase().indexOf('spoilers:');
-			if (spoilerIndex >= 0) {
-				var offset = spoilerIndex+8;
-				if (str.charAt(offset) === ':') offset++;
-				if (str.charAt(offset) === ' ') offset++;
-				str = str.substr(0, offset)+'<span class="spoiler">'+str.substr(offset)+'</span>';
-			}
-		}
+if (!options.hidespoiler) {
+var spoilerIndex = str.toLowerCase().indexOf('spoiler:');
+if (spoilerIndex < 0) spoilerIndex = str.toLowerCase().indexOf('spoilers:');
+if (spoilerIndex >= 0) {
+var offset = spoilerIndex+8;
+if (str.charAt(offset) === ':') offset++;
+if (str.charAt(offset) === ' ') offset++;
+str = str.substr(0, offset)+'<span class="spoiler">'+str.substr(offset)+'</span>';
+}
+}
 
-		return str;
-	},
+return str;
+},
 
-	escapeHTML: function(str, jsEscapeToo) {
-		str = (str?''+str:'');
-		str = str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-		if (jsEscapeToo) str = str.replace(/'/g, '\\\'');
-		return str;
-	},
+escapeHTML: function(str, jsEscapeToo) {
+str = (str?''+str:'');
+str = str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+if (jsEscapeToo) str = str.replace(/'/g, '\\\'');
+return str;
+},
 
-	unescapeHTML: function(str) {
-		str = (str?''+str:'');
-		return str.replace(/&quot;/g, '"').replace(/&gt;/g, '>').
-			replace(/&lt;/g, '<').replace(/&amp;/g, '&');
-	},
+unescapeHTML: function(str) {
+str = (str?''+str:'');
+return str.replace(/&quot;/g, '"').replace(/&gt;/g, '>').
+replace(/&lt;/g, '<').replace(/&amp;/g, '&');
+},
 
-	escapeQuotes: function(str) {
-		str = (str?''+str:'');
-		str = str.replace(/'/g, '\\\'');
-		return str;
-	},
+escapeQuotes: function(str) {
+str = (str?''+str:'');
+str = str.replace(/'/g, '\\\'');
+return str;
+},
 
-	sanitizeHTML: (function() {
-		if (!('html4' in window)) {
-			return function() {
-				throw new Error('sanitizeHTML requires caja');
-			};
-		}
-		// Add <marquee> and <blink> to the whitelist.
-		// See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee
-		// for the list of attributes.
-		$.extend(html4.ELEMENTS, {
-			'marquee': 0,
-			'blink': 0
-		});
-		$.extend(html4.ATTRIBS, {
-			'marquee::behavior': 0,
-			'marquee::bgcolor': 0,
-			'marquee::direction': 0,
-			'marquee::height': 0,
-			'marquee::hspace': 0,
-			'marquee::loop': 0,
-			'marquee::scrollamount': 0,
-			'marquee::scrolldelay': 0,
-			'marquee::truespeed': 0,
-			'marquee::vspace': 0,
-			'marquee::width': 0
-		});
+sanitizeHTML: (function() {
+if (!('html4' in window)) {
+return function() {
+throw new Error('sanitizeHTML requires caja');
+};
+}
+// Add <marquee> and <blink> to the whitelist.
+// See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee
+// for the list of attributes.
+$.extend(html4.ELEMENTS, {
+'marquee': 0,
+'blink': 0
+});
+$.extend(html4.ATTRIBS, {
+'marquee::behavior': 0,
+'marquee::bgcolor': 0,
+'marquee::direction': 0,
+'marquee::height': 0,
+'marquee::hspace': 0,
+'marquee::loop': 0,
+'marquee::scrollamount': 0,
+'marquee::scrolldelay': 0,
+'marquee::truespeed': 0,
+'marquee::vspace': 0,
+'marquee::width': 0
+});
 
-		var uriRewriter = function(uri) {
-			return uri;
-		};
-		var tagPolicy = function(tagName, attribs) {
-			if (html4.ELEMENTS[tagName] & html4.eflags['UNSAFE']) {
-				return;
-			}
-			var targetIdx;
-			var extra = {};
-			if (tagName === 'a') {
-				// Special handling of <a> tags.
+var uriRewriter = function(uri) {
+return uri;
+};
+var tagPolicy = function(tagName, attribs) {
+if (html4.ELEMENTS[tagName] & html4.eflags['UNSAFE']) {
+return;
+}
+var targetIdx;
+var extra = {};
+if (tagName === 'a') {
+// Special handling of <a> tags.
 
-				for (var i = 0; i < attribs.length - 1; i += 2) {
-					switch (attribs[i]) {
-						case 'href':
-							if (!Tools.interstice.isWhitelisted(attribs[i + 1])) {
-								attribs[i + 1] = Tools.interstice.getURI(attribs[i + 1]);
-							}
-							break;
-						case 'target':
-							targetIdx = i + 1;
-							break;
-						case 'room':
-							// Special custom attribute for linking to a room.
-							// This attribute will be stripped by `sanitizeAttribs`
-							// below, and is only used to signal to add an `onclick`
-							// handler here.
-							if (!(/^[a-z0-9\-]*$/.test(attribs[i + 1]))) {
-								// Bogus roomid - could be used to inject JavaScript.
-								break;
-							}
-							extra['onclick'] = 'return selectTab(\'' + attribs[i + 1] + '\');';
-							break;
-					}
-				}
-			}
-			attribs = html.sanitizeAttribs(tagName, attribs, uriRewriter);
-			if (targetIdx !== undefined) {
-				attribs[targetIdx] = '_blank';
-			} else {
-				extra['target'] = '_blank';
-			}
-			for (var i in extra) {
-				attribs.push(i);
-				attribs.push(extra[i]);
-			}
-			return {attribs: attribs};
-		};
-		return function(input) {
-			return html.sanitizeWithPolicy(input, tagPolicy);
-		};
-	})(),
+for (var i = 0; i < attribs.length - 1; i += 2) {
+switch (attribs[i]) {
+case 'href':
+if (!Tools.interstice.isWhitelisted(attribs[i + 1])) {
+attribs[i + 1] = Tools.interstice.getURI(attribs[i + 1]);
+}
+break;
+case 'target':
+targetIdx = i + 1;
+break;
+case 'room':
+// Special custom attribute for linking to a room.
+// This attribute will be stripped by `sanitizeAttribs`
+// below, and is only used to signal to add an `onclick`
+// handler here.
+if (!(/^[a-z0-9\-]*$/.test(attribs[i + 1]))) {
+// Bogus roomid - could be used to inject JavaScript.
+break;
+}
+extra['onclick'] = 'return selectTab(\'' + attribs[i + 1] + '\');';
+break;
+}
+}
+}
+attribs = html.sanitizeAttribs(tagName, attribs, uriRewriter);
+if (targetIdx !== undefined) {
+attribs[targetIdx] = '_blank';
+} else {
+extra['target'] = '_blank';
+}
+for (var i in extra) {
+attribs.push(i);
+attribs.push(extra[i]);
+}
+return {attribs: attribs};
+};
+return function(input) {
+return html.sanitizeWithPolicy(input, tagPolicy);
+};
+})(),
 
-	interstice: (function() {
-		var patterns = (function(whitelist) {
-			var patterns = [];
-			for (var i = 0; i < whitelist.length; ++i) {
-				patterns.push(new RegExp('https?://([A-Za-z0-9-]*\\.)?' +
-					whitelist[i] +
-					'(/.*)?', 'i'));
-			}
-			return patterns;
-		})((window.Config && Config.whitelist) ? Config.whitelist : []);
-		return {
-			isWhitelisted: function(uri) {
-				if ((uri[0] === '/') && (uri[1] !== '/')) {
-					// domain-relative URIs are safe
-					return true;
-				}
-				for (var i = 0; i < patterns.length; ++i) {
-					if (patterns[i].test(uri)) {
-						return true;
-					}
-				}
-				return false;
-			},
-			getURI: function(uri) {
-				return 'http://pokemonshowdown.com/interstice?uri=' + encodeURIComponent(uri);
-			}
-		};
-	})(),
+interstice: (function() {
+var patterns = (function(whitelist) {
+var patterns = [];
+for (var i = 0; i < whitelist.length; ++i) {
+patterns.push(new RegExp('https?://([A-Za-z0-9-]*\\.)?' +
+whitelist[i] +
+'(/.*)?', 'i'));
+}
+return patterns;
+})((window.Config && Config.whitelist) ? Config.whitelist : []);
+return {
+isWhitelisted: function(uri) {
+if ((uri[0] === '/') && (uri[1] !== '/')) {
+// domain-relative URIs are safe
+return true;
+}
+for (var i = 0; i < patterns.length; ++i) {
+if (patterns[i].test(uri)) {
+return true;
+}
+}
+return false;
+},
+getURI: function(uri) {
+return 'http://pokemonshowdown.com/interstice?uri=' + encodeURIComponent(uri);
+}
+};
+})(),
 
-	safeJSON: function(f) {
-		return function(data) {
-			if (data.length < 1) return;
-			if (data[0] == ']') data = data.substr(1);
-			return f.call(this, $.parseJSON(data));
-		};
-	},
+safeJSON: function(f) {
+return function(data) {
+if (data.length < 1) return;
+if (data[0] == ']') data = data.substr(1);
+return f.call(this, $.parseJSON(data));
+};
+},
 
-	prefs: (function() {
-		var localStorageEntry = 'showdown_prefs';
-		var prefs = function(prop, value, save) {
-			if (value === undefined) {
-				// get preference
-				return prefs.data[prop];
-			}
-			// set preference
-			prefs.data[prop] = value;
-			if (save !== false) prefs.save();
-		};
-		prefs.data = {};
-		try {
-			prefs.data = (window.localStorage &&
-				$.parseJSON(localStorage.getItem(localStorageEntry))) || {};
-		} catch (e) {}
-		prefs.save = function() {
-			if (!window.localStorage) return;
-			localStorage.setItem(localStorageEntry, $.toJSON(this.data));
-		};
-		return prefs;
-	})(),
+prefs: (function() {
+var localStorageEntry = 'showdown_prefs';
+var prefs = function(prop, value, save) {
+if (value === undefined) {
+// get preference
+return prefs.data[prop];
+}
+// set preference
+prefs.data[prop] = value;
+if (save !== false) prefs.save();
+};
+prefs.data = {};
+try {
+prefs.data = (window.localStorage &&
+$.parseJSON(localStorage.getItem(localStorageEntry))) || {};
+} catch (e) {}
+prefs.save = function() {
+if (!window.localStorage) return;
+localStorage.setItem(localStorageEntry, $.toJSON(this.data));
+};
+return prefs;
+})(),
 
-	getEffect: function(effect) {
-		if (!effect || typeof effect === 'string') {
-			var name = $.trim(effect||'');
-			if (name.substr(0,5) === 'item:') {
-				return Tools.getItem(name.substr(5));
-			} else if (name.substr(0,8) === 'ability:') {
-				return Tools.getAbility(name.substr(8));
-			} else if (name.substr(0,5) === 'move:') {
-				return Tools.getMove(name.substr(5));
-			}
-			var id = toId(name);
-			effect = {};
-			if (id && window.BattleStatuses && BattleStatuses[id]) {
-				effect = BattleStatuses[id];
-				effect.exists = true;
-			} else if (id && window.BattleMovedex && BattleMovedex[id] && BattleMovedex[id].effect) {
-				effect = BattleMovedex[id].effect;
-				effect.exists = true;
-			} else if (id && window.BattleAbilities && BattleAbilities[id] && BattleAbilities[id].effect) {
-				effect = BattleAbilities[id].effect;
-				effect.exists = true;
-			} else if (id && window.BattleItems && BattleItems[id] && BattleItems[id].effect) {
-				effect = BattleItems[id].effect;
-				effect.exists = true;
-			} else if (id && window.BattleFormats && BattleFormats[id]) {
-				effect = BattleFormats[id];
-				effect.exists = true;
-				if (!effect.effectType) effect.effectType = 'Format';
-			} else if (id === 'recoil') {
-				effect = {
-					effectType: 'Recoil'
-				};
-				effect.exists = true;
-			} else if (id === 'drain') {
-				effect = {
-					effectType: 'Drain'
-				};
-				effect.exists = true;
-			}
-			if (!effect.id) effect.id = id;
-			if (!effect.name) effect.name = Tools.escapeHTML(name);
-			if (!effect.category) effect.category = 'Effect';
-			if (!effect.effectType) effect.effectType = 'Effect';
-		}
-		return effect;
-	},
+getEffect: function(effect) {
+if (!effect || typeof effect === 'string') {
+var name = $.trim(effect||'');
+if (name.substr(0,5) === 'item:') {
+return Tools.getItem(name.substr(5));
+} else if (name.substr(0,8) === 'ability:') {
+return Tools.getAbility(name.substr(8));
+} else if (name.substr(0,5) === 'move:') {
+return Tools.getMove(name.substr(5));
+}
+var id = toId(name);
+effect = {};
+if (id && window.BattleStatuses && BattleStatuses[id]) {
+effect = BattleStatuses[id];
+effect.exists = true;
+} else if (id && window.BattleMovedex && BattleMovedex[id] && BattleMovedex[id].effect) {
+effect = BattleMovedex[id].effect;
+effect.exists = true;
+} else if (id && window.BattleAbilities && BattleAbilities[id] && BattleAbilities[id].effect) {
+effect = BattleAbilities[id].effect;
+effect.exists = true;
+} else if (id && window.BattleItems && BattleItems[id] && BattleItems[id].effect) {
+effect = BattleItems[id].effect;
+effect.exists = true;
+} else if (id && window.BattleFormats && BattleFormats[id]) {
+effect = BattleFormats[id];
+effect.exists = true;
+if (!effect.effectType) effect.effectType = 'Format';
+} else if (id === 'recoil') {
+effect = {
+effectType: 'Recoil'
+};
+effect.exists = true;
+} else if (id === 'drain') {
+effect = {
+effectType: 'Drain'
+};
+effect.exists = true;
+}
+if (!effect.id) effect.id = id;
+if (!effect.name) effect.name = Tools.escapeHTML(name);
+if (!effect.category) effect.category = 'Effect';
+if (!effect.effectType) effect.effectType = 'Effect';
+}
+return effect;
+},
 
-	getMove: function(move) {
-		if (!move || typeof move === 'string') {
-			var name = $.trim(move||'');
-			var id = toId(name);
-			move = (window.BattleMovedex && window.BattleMovedex[id]) || {};
-			if (move.name) move.exists = true;
+getMove: function(move) {
+if (!move || typeof move === 'string') {
+var name = $.trim(move||'');
+var id = toId(name);
+move = (window.BattleMovedex && window.BattleMovedex[id]) || {};
+if (move.name) move.exists = true;
 
-			if (!move.exists && id.substr(0,11) === 'hiddenpower' && id.length > 11) {
-				var matches = /([a-z]*)([0-9]*)/.exec(id);
-				move = (window.BattleMovedex && window.BattleMovedex[matches[1]]) || {};
-				move = $.extend({}, move);
-				move.basePower = matches[2];
-			}
+if (!move.exists && id.substr(0,11) === 'hiddenpower' && id.length > 11) {
+var matches = /([a-z]*)([0-9]*)/.exec(id);
+move = (window.BattleMovedex && window.BattleMovedex[matches[1]]) || {};
+move = $.extend({}, move);
+move.basePower = matches[2];
+}
 
-			if (!move.id) move.id = id;
-			if (!move.name) move.name = Tools.escapeHTML(name);
+if (!move.id) move.id = id;
+if (!move.name) move.name = Tools.escapeHTML(name);
 
-			if (!move.critRatio) move.critRatio = 1;
-			if (!move.baseType) move.baseType = move.type;
-			if (!move.effectType) move.effectType = 'Move';
-			if (!move.secondaries && move.secondary) move.secondaries = [move.secondary];
+if (!move.critRatio) move.critRatio = 1;
+if (!move.baseType) move.baseType = move.type;
+if (!move.effectType) move.effectType = 'Move';
+if (!move.secondaries && move.secondary) move.secondaries = [move.secondary];
 
-			if (window.BattleMoveAnims) {
-				if (!move.anim) move.anim = BattleOtherAnims.attack.anim;
-				$.extend(move, BattleMoveAnims[move.id]);
-			}
-		}
-		return move;
-	},
+if (window.BattleMoveAnims) {
+if (!move.anim) move.anim = BattleOtherAnims.attack.anim;
+$.extend(move, BattleMoveAnims[move.id]);
+}
+}
+return move;
+},
 
-	getItem: function(item) {
-		if (!item || typeof item === 'string') {
-			var name = $.trim(item||'');
-			var id = toId(name);
-			item = (window.BattleItems && window.BattleItems[id]) || {};
-			if (item.name) item.exists = true;
-			if (!item.id) item.id = id;
-			if (!item.name) item.name = Tools.escapeHTML(name);
-			if (!item.category) item.category = 'Effect';
-			if (!item.effectType) item.effectType = 'Item';
-		}
-		return item;
-	},
+getItem: function(item) {
+if (!item || typeof item === 'string') {
+var name = $.trim(item||'');
+var id = toId(name);
+item = (window.BattleItems && window.BattleItems[id]) || {};
+if (item.name) item.exists = true;
+if (!item.id) item.id = id;
+if (!item.name) item.name = Tools.escapeHTML(name);
+if (!item.category) item.category = 'Effect';
+if (!item.effectType) item.effectType = 'Item';
+}
+return item;
+},
 
-	getAbility: function(ability) {
-		if (!ability || typeof ability === 'string') {
-			var name = $.trim(ability||'');
-			var id = toId(name);
-			ability = (window.BattleAbilities && window.BattleAbilities[id]) || {};
-			if (ability.name) ability.exists = true;
-			if (!ability.id) ability.id = id;
-			if (!ability.name) ability.name = Tools.escapeHTML(name);
-			if (!ability.category) ability.category = 'Effect';
-			if (!ability.effectType) ability.effectType = 'Ability';
-		}
-		return ability;
-	},
+getAbility: function(ability) {
+if (!ability || typeof ability === 'string') {
+var name = $.trim(ability||'');
+var id = toId(name);
+ability = (window.BattleAbilities && window.BattleAbilities[id]) || {};
+if (ability.name) ability.exists = true;
+if (!ability.id) ability.id = id;
+if (!ability.name) ability.name = Tools.escapeHTML(name);
+if (!ability.category) ability.category = 'Effect';
+if (!ability.effectType) ability.effectType = 'Ability';
+}
+return ability;
+},
 
-	getTemplate: function(template) {
-		if (!template || typeof template === 'string') {
-			var name = template;
-			var id = toId(name);
-			if (window.BattleAliases && BattleAliases[id]) {
-				name = BattleAliases[id];
-				id = toId(name);
-			}
-			if (!window.BattlePokedex) window.BattlePokedex = {};
-			if (!window.BattlePokedex[id]) {
-				template = window.BattlePokedex[id] = {};
-				for (var k in baseSpeciesChart) {
-					if (id.length > k.length && id.substr(0, k.length) === k) {
-						template.baseSpecies = k;
-						template.forme = id.substr(k.length);
-					}
-				}
-				if (id !== 'yanmega' && id.substr(id.length-4) === 'mega') {
-					template.baseSpecies = id.substr(0, id.length-4);
-					template.forme = id.substr(id.length-4);
-				}
-				template.exists = false;
-			}
-			template = window.BattlePokedex[id];
-			if (template.species) name = template.species;
-			if (template.exists === undefined) template.exists = true;
-			if (window.BattleFormatsData && window.BattleFormatsData[id]) {
-				template.tier = window.BattleFormatsData[id].tier;
-				template.isNonstandard = window.BattleFormatsData[id].isNonstandard;
-			}
-			if (window.BattleLearnsets && window.BattleLearnsets[id]) {
-				template.learnset = window.BattleLearnsets[id].learnset;
-			}
-			if (!template.id) template.id = id;
-			if (!template.name) template.name = name = Tools.escapeHTML(name);
-			if (!template.speciesid) template.speciesid = id;
-			if (!template.species) template.species = name;
-			if (!template.baseSpecies) template.baseSpecies = name;
-			if (!template.forme) template.forme = '';
-			if (!template.formeLetter) template.formeLetter = '';
-			if (!template.spriteid) {
-				var formeid = '';
-				if (template.baseSpecies !== name) {
-					formeid = '-'+toId(template.forme);
-					if (formeid === '-megax') formeid = '-mega-x';
-					if (formeid === '-megay') formeid = '-mega-y';
-				}
-				template.spriteid = toId(template.baseSpecies)+formeid;
-			}
-			if (!template.effectType) template.effectType = 'Template';
-		}
-		return template;
-	},
+getTemplate: function(template) {
+if (!template || typeof template === 'string') {
+var name = template;
+var id = toId(name);
+if (window.BattleAliases && BattleAliases[id]) {
+name = BattleAliases[id];
+id = toId(name);
+}
+if (!window.BattlePokedex) window.BattlePokedex = {};
+if (!window.BattlePokedex[id]) {
+template = window.BattlePokedex[id] = {};
+for (var k in baseSpeciesChart) {
+if (id.length > k.length && id.substr(0, k.length) === k) {
+template.baseSpecies = k;
+template.forme = id.substr(k.length);
+}
+}
+if (id !== 'yanmega' && id.substr(id.length-4) === 'mega') {
+template.baseSpecies = id.substr(0, id.length-4);
+template.forme = id.substr(id.length-4);
+}
+template.exists = false;
+}
+template = window.BattlePokedex[id];
+if (template.species) name = template.species;
+if (template.exists === undefined) template.exists = true;
+if (window.BattleFormatsData && window.BattleFormatsData[id]) {
+template.tier = window.BattleFormatsData[id].tier;
+template.isNonstandard = window.BattleFormatsData[id].isNonstandard;
+}
+if (window.BattleLearnsets && window.BattleLearnsets[id]) {
+template.learnset = window.BattleLearnsets[id].learnset;
+}
+if (!template.id) template.id = id;
+if (!template.name) template.name = name = Tools.escapeHTML(name);
+if (!template.speciesid) template.speciesid = id;
+if (!template.species) template.species = name;
+if (!template.baseSpecies) template.baseSpecies = name;
+if (!template.forme) template.forme = '';
+if (!template.formeLetter) template.formeLetter = '';
+if (!template.spriteid) {
+var formeid = '';
+if (template.baseSpecies !== name) {
+formeid = '-'+toId(template.forme);
+if (formeid === '-megax') formeid = '-mega-x';
+if (formeid === '-megay') formeid = '-mega-y';
+}
+template.spriteid = toId(template.baseSpecies)+formeid;
+}
+if (!template.effectType) template.effectType = 'Template';
+}
+return template;
+},
 
-	getLearnset: function(template) {
-		template = Tools.getTemplate(template);
-		var alreadyChecked = {};
-		var learnset = {};
-		do {
-			alreadyChecked[template.speciesid] = true;
-			if (template.learnset) {
-				for (var l in template.learnset) {
-					learnset[l] = template.learnset[l];
-				}
-			}
-			if (template.speciesid === 'shaymin') {
-				template = Tools.getTemplate('shayminsky');
-			} else if (template.baseSpecies !== template.species) {
-				template = Tools.getTemplate(template.baseSpecies);
-			} else {
-				template = Tools.getTemplate(template.prevo);
-			}
-		} while (template && template.species && !alreadyChecked[template.speciesid]);
-		return learnset;
-	},
+getLearnset: function(template) {
+template = Tools.getTemplate(template);
+var alreadyChecked = {};
+var learnset = {};
+do {
+alreadyChecked[template.speciesid] = true;
+if (template.learnset) {
+for (var l in template.learnset) {
+learnset[l] = template.learnset[l];
+}
+}
+if (template.speciesid === 'shaymin') {
+template = Tools.getTemplate('shayminsky');
+} else if (template.baseSpecies !== template.species) {
+template = Tools.getTemplate(template.baseSpecies);
+} else {
+template = Tools.getTemplate(template.prevo);
+}
+} while (template && template.species && !alreadyChecked[template.speciesid]);
+return learnset;
+},
 
-	getType: function(type) {
-		if (!type || typeof type === 'string') {
-			var id = toId(type);
-			id = id.substr(0,1).toUpperCase() + id.substr(1);
-			type = (window.BattleTypeChart && window.BattleTypeChart[id]) || {};
-			if (type.damageTaken) type.exists = true;
-			if (!type.id) type.id = id;
-			if (!type.name) type.name = id;
-			if (!type.effectType) {
-				type.effectType = 'Type';
-			}
-		}
-		return type;
-	},
+getType: function(type) {
+if (!type || typeof type === 'string') {
+var id = toId(type);
+id = id.substr(0,1).toUpperCase() + id.substr(1);
+type = (window.BattleTypeChart && window.BattleTypeChart[id]) || {};
+if (type.damageTaken) type.exists = true;
+if (!type.id) type.id = id;
+if (!type.name) type.name = id;
+if (!type.effectType) {
+type.effectType = 'Type';
+}
+}
+return type;
+},
 
-	getSpriteData: function(pokemon, siden, options) {
-		pokemon = Tools.getTemplate(pokemon);
-		var isBack = !siden;
-		var back = (siden?'':'-back');
-		var facing = (siden?'front':'back');
-		var cryurl = '';
-		var spriteid = pokemon.spriteid;
-		if (window.BattlePokemonSprites && BattlePokemonSprites[pokemon.speciesid]) {
-			var num = '' + BattlePokemonSprites[pokemon.speciesid].num;
-			if (num.length < 3) num = '0' + num;
-			if (num.length < 3) num = '0' + num;
-			cryurl = 'audio/cries/' + num + '.wav';
-		}
+getSpriteData: function(pokemon, siden, options) {
+pokemon = Tools.getTemplate(pokemon);
+var isBack = !siden;
+var back = (siden?'':'-back');
+var facing = (siden?'front':'back');
+var cryurl = '';
+var spriteid = pokemon.spriteid;
+if (window.BattlePokemonSprites && BattlePokemonSprites[pokemon.speciesid]) {
+var num = '' + BattlePokemonSprites[pokemon.speciesid].num;
+if (num.length < 3) num = '0' + num;
+if (num.length < 3) num = '0' + num;
+cryurl = 'audio/cries/' + num + '.wav';
+}
 
-		// April Fool's 2013
-		if (window.Config && Config.server && Config.server.afd || options && options.afd) {
-			return {
-				w: 96,
-				h: 96,
-				url: Tools.resourcePrefix + 'sprites/afd'+back+'/' + spriteid + '.png',
-				cryurl: cryurl,
-				isBackSprite: isBack
-			};
-		}
+// April Fool's 2013
+if (window.Config && Config.server && Config.server.afd || options && options.afd) {
+return {
+w: 96,
+h: 96,
+url: Tools.resourcePrefix + 'sprites/afd'+back+'/' + spriteid + '.png',
+cryurl: cryurl,
+isBackSprite: isBack
+};
+}
 
-		if (pokemon.shiny) back += '-shiny';
-		if (!Tools.prefs('noanim') && window.BattlePokemonSprites && BattlePokemonSprites[pokemon.speciesid] && BattlePokemonSprites[pokemon.speciesid][facing]) {
-			var url = 'sprites/bwani'+back;
-			url += '/'+spriteid;
-			var spriteType = 'ani';
-			if (BattlePokemonSprites[pokemon.speciesid][facing]['anif'] && pokemon.gender === 'F') {
-				url += '-f';
-				spriteType = 'anif';
-			}
-			url += '.gif';
-			return {
-				w: BattlePokemonSprites[pokemon.speciesid][facing][spriteType].w,
-				h: BattlePokemonSprites[pokemon.speciesid][facing][spriteType].h,
-				url: url,
-				cryurl: cryurl,
-				isBackSprite: isBack,
-				shiny: pokemon.shiny
-			};
-		}
-		return {
-			w: 96,
-			h: 96,
-			url: 'sprites/bw'+back+'/' + spriteid + '.png',
-			cryurl: cryurl,
-			isBackSprite: isBack
-		};
-	},
+if (pokemon.shiny) back += '-shiny';
+if (!Tools.prefs('noanim') && window.BattlePokemonSprites && BattlePokemonSprites[pokemon.speciesid] && BattlePokemonSprites[pokemon.speciesid][facing]) {
+var url = Tools.resourcePrefix + 'sprites/bwani'+back;
+url += '/'+spriteid;
+var spriteType = 'ani';
+if (BattlePokemonSprites[pokemon.speciesid][facing]['anif'] && pokemon.gender === 'F') {
+url += '-f';
+spriteType = 'anif';
+}
+url += '.gif';
+return {
+w: BattlePokemonSprites[pokemon.speciesid][facing][spriteType].w,
+h: BattlePokemonSprites[pokemon.speciesid][facing][spriteType].h,
+url: url,
+cryurl: cryurl,
+isBackSprite: isBack,
+shiny: pokemon.shiny
+};
+}
+return {
+w: 96,
+h: 96,
+url: Tools.resourcePrefix + 'sprites/bw'+back+'/' + spriteid + '.png',
+cryurl: cryurl,
+isBackSprite: isBack
+};
+},
 
-	getIcon: function(pokemon) {
-		var num = 0;
-		if (pokemon === 'pokeball') {
-			return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-pokeball-sheet.png) no-repeat scroll -0px -8px';
-		} else if (pokemon === 'pokeball-statused') {
-			return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-pokeball-sheet.png) no-repeat scroll -32px -8px';
-		} else if (pokemon === 'pokeball-none') {
-			return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-pokeball-sheet.png) no-repeat scroll -64px -8px';
-		}
-		var id = toId(pokemon);
-		if (pokemon && pokemon.species) id = toId(pokemon.species);
-		if (pokemon && pokemon.volatiles && pokemon.volatiles.formechange && !pokemon.volatiles.transform) id = toId(pokemon.volatiles.formechange[2]);
-		if (pokemon && pokemon.num !== undefined) num = pokemon.num;
-		else if (window.BattlePokemonSprites && BattlePokemonSprites[id] && BattlePokemonSprites[id].num) num = BattlePokemonSprites[id].num;
-		else if (window.BattlePokedex && window.BattlePokedex[id] && BattlePokedex[id].num) num = BattlePokedex[id].num;
-		if (num < 0) num = 0;
-		if (num > 718) num = 0;
-		var altNums = {
-			"egg": 731,
-			"rotomfan": 779,
-			"rotomfrost": 780,
-			"rotomheat": 781,
-			"rotommow": 782,
-			"rotomwash": 783,
-			"giratinaorigin": 785,
-			"shayminsky": 787,
-			"basculinbluestriped": 789,
-			"darmanitanzen": 792,
-			"deoxysattack": 763,
-			"deoxysdefense": 764,
-			"deoxysspeed": 766,
-			"wormadamsandy": 771,
-			"wormadamtrash": 772,
-			"cherrimsunshine": 774,
-			"castformrainy": 760,
-			"castformsnowy": 761,
-			"castformsunny": 762,
-			"meloettapirouette": 804,
-			"meowsticf": 809,
-			"tornadustherian": 816,
-			"thundurustherian": 817,
-			"landorustherian": 818,
-			"kyuremblack": 819,
-			"kyuremwhite": 820,
-			"keldeoresolute": 821,
-			"syclant": 832+0,
-			"revenankh": 832+1,
-			"pyroak": 832+2,
-			"fidgit": 832+3,
-			"stratagem": 832+4,
-			"arghonaut": 832+5,
-			"kitsunoh": 832+6,
-			"cyclohm": 832+7,
-			"colossoil": 832+8,
-			"krilowatt": 832+9,
-			"voodoom": 832+10,
-			"tomohawk": 832+11,
-			"necturna": 832+12,
-			"mollux": 832+13,
-			"aurumoth": 832+14,
-			"malaconda": 832+15,
-			"cawmodore": 832+16,
-		};
-		if (altNums[id]) {
-			num = altNums[id];
-		}
-		if (pokemon && pokemon.gender === 'F') {
-			if (id === 'unfezant') num = 788;
-			else if (id === 'frillish') num = 801;
-			else if (id === 'jellicent') num = 802;
-			else if (id === 'meowstic') num = 809;
-		}
+getIcon: function(pokemon) {
+var num = 0;
+if (pokemon === 'pokeball') {
+return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-pokeball-sheet.png) no-repeat scroll -0px -8px';
+} else if (pokemon === 'pokeball-statused') {
+return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-pokeball-sheet.png) no-repeat scroll -32px -8px';
+} else if (pokemon === 'pokeball-none') {
+return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-pokeball-sheet.png) no-repeat scroll -64px -8px';
+}
+var id = toId(pokemon);
+if (pokemon && pokemon.species) id = toId(pokemon.species);
+if (pokemon && pokemon.volatiles && pokemon.volatiles.formechange && !pokemon.volatiles.transform) id = toId(pokemon.volatiles.formechange[2]);
+if (pokemon && pokemon.num !== undefined) num = pokemon.num;
+else if (window.BattlePokemonSprites && BattlePokemonSprites[id] && BattlePokemonSprites[id].num) num = BattlePokemonSprites[id].num;
+else if (window.BattlePokedex && window.BattlePokedex[id] && BattlePokedex[id].num) num = BattlePokedex[id].num;
+if (num < 0) num = 0;
+if (num > 718) num = 0;
+var altNums = {
+"egg": 731,
+"rotomfan": 779,
+"rotomfrost": 780,
+"rotomheat": 781,
+"rotommow": 782,
+"rotomwash": 783,
+"giratinaorigin": 785,
+"shayminsky": 787,
+"basculinbluestriped": 789,
+"darmanitanzen": 792,
+"deoxysattack": 763,
+"deoxysdefense": 764,
+"deoxysspeed": 766,
+"wormadamsandy": 771,
+"wormadamtrash": 772,
+"cherrimsunshine": 774,
+"castformrainy": 760,
+"castformsnowy": 761,
+"castformsunny": 762,
+"meloettapirouette": 804,
+"meowsticf": 809,
+"tornadustherian": 816,
+"thundurustherian": 817,
+"landorustherian": 818,
+"kyuremblack": 819,
+"kyuremwhite": 820,
+"keldeoresolute": 821,
+"syclant": 832+0,
+"revenankh": 832+1,
+"pyroak": 832+2,
+"fidgit": 832+3,
+"stratagem": 832+4,
+"arghonaut": 832+5,
+"kitsunoh": 832+6,
+"cyclohm": 832+7,
+"colossoil": 832+8,
+"krilowatt": 832+9,
+"voodoom": 832+10,
+"tomohawk": 832+11,
+"necturna": 832+12,
+"mollux": 832+13,
+"aurumoth": 832+14,
+"malaconda": 832+15,
+"cawmodore": 832+16,
+};
+if (altNums[id]) {
+num = altNums[id];
+}
+if (pokemon && pokemon.gender === 'F') {
+if (id === 'unfezant') num = 788;
+else if (id === 'frillish') num = 801;
+else if (id === 'jellicent') num = 802;
+else if (id === 'meowstic') num = 809;
+}
 
-		var top = 8 + Math.floor(num / 16) * 32;
-		var left = (num % 16) * 32;
-		var fainted = (pokemon && pokemon.fainted?';opacity:.4':'');
-		return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-sheet-g6.png?v0.9xyb1) no-repeat scroll -' + left + 'px -' + top + 'px' + fainted;
-	},
+var top = 8 + Math.floor(num / 16) * 32;
+var left = (num % 16) * 32;
+var fainted = (pokemon && pokemon.fainted?';opacity:.4':'');
+return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-sheet-g6.png?v0.9xyb1) no-repeat scroll -' + left + 'px -' + top + 'px' + fainted;
+},
 
-	getTeambuilderSprite: function(pokemon) {
-		if (!pokemon) return '';
-		var id = toId(pokemon);
-		if (pokemon.spriteid) id = pokemon.spriteid;
-		if (pokemon.species && !id) {
-			var template = Tools.getTemplate(pokemon.species);
-			if (template.spriteid) {
-				id = template.spriteid;
-			} else {
-				id = toId(pokemon.species);
-			}
-		}
-		var shiny = (pokemon.shiny?'-shiny':'');
-		if (BattlePokemonSprites && BattlePokemonSprites[id] && BattlePokemonSprites[id].front && BattlePokemonSprites[id].front.anif && pokemon.gender === 'F') {
-			id+='-f';
-		}
-		return 'background-image:url(' + Tools.resourcePrefix + 'sprites/bw'+shiny+'/'+id+'.png)';
-	},
+getTeambuilderSprite: function(pokemon) {
+if (!pokemon) return '';
+var id = toId(pokemon);
+if (pokemon.spriteid) id = pokemon.spriteid;
+if (pokemon.species && !id) {
+var template = Tools.getTemplate(pokemon.species);
+if (template.spriteid) {
+id = template.spriteid;
+} else {
+id = toId(pokemon.species);
+}
+}
+var shiny = (pokemon.shiny?'-shiny':'');
+if (BattlePokemonSprites && BattlePokemonSprites[id] && BattlePokemonSprites[id].front && BattlePokemonSprites[id].front.anif && pokemon.gender === 'F') {
+id+='-f';
+}
+return 'background-image:url(' + Tools.resourcePrefix + 'sprites/bw'+shiny+'/'+id+'.png)';
+},
 
-	getItemIcon: function(item) {
-		var num = 0;
-		if (typeof item === 'string' && exports.BattleItems) item = exports.BattleItems[toId(item)];
-		if (item && item.spritenum) num = item.spritenum;
+getItemIcon: function(item) {
+var num = 0;
+if (typeof item === 'string' && exports.BattleItems) item = exports.BattleItems[toId(item)];
+if (item && item.spritenum) num = item.spritenum;
 
-		var top = Math.floor(num / 16) * 24;
-		var left = (num % 16) * 24;
-		return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/itemicons-sheet.png) no-repeat scroll -' + left + 'px -' + top + 'px';
-	},
+var top = Math.floor(num / 16) * 24;
+var left = (num % 16) * 24;
+return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/itemicons-sheet.png) no-repeat scroll -' + left + 'px -' + top + 'px';
+},
 
-	getTypeIcon: function(type, b) { // b is just for utilichart.js
-		if (!type) return '';
-		var sanitizedType = type.replace(/\?/g,'%3f');
-		return '<img src="' + Tools.resourcePrefix + 'sprites/types/'+sanitizedType+'.png" alt="'+type+'" height="14" width="32"'+(b?' class="b"':'')+' />';
-	}
+getTypeIcon: function(type, b) { // b is just for utilichart.js
+if (!type) return '';
+var sanitizedType = type.replace(/\?/g,'%3f');
+return '<img src="' + Tools.resourcePrefix + 'sprites/types/'+sanitizedType+'.png" alt="'+type+'" height="14" width="32"'+(b?' class="b"':'')+' />';
+}
 };
