@@ -1,0 +1,36 @@
+
+ReferenceError: targetUser is not defined
+    at Object.exports.commands.slap (/home/osher/Kalos-Showdown/config/commands.js:706:17)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/slap mlgstorm
+
+ReferenceError: targetUser is not defined
+    at Object.exports.commands.slap (/home/osher/Kalos-Showdown/commands.js:537:17)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/slap jewzilla

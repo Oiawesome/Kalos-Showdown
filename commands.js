@@ -531,6 +531,23 @@ var commands = exports.commands = {
 		targetUser.mute(room.id, 7*60*1000);
 	},
 
+
+	slap: function(target, room, user) {
+		if (!target) return this.parse('/help mute');
+
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (!targetUser) {
+			return this.sendReply('User '+this.targetUsername+' not found.');
+		}
+		if (target.length > MAX_REASON_LENGTH) {
+			return this.sendReply('The reason is too long. It cannot exceed ' + MAX_REASON_LENGTH + ' characters.');
+		}
+		if (!this.canBroadcast()) return;
+                targetUser.popup(user.name+' has slapped you silly for the following reason: '+target);
+		this.addModCommand(''+targetUser.name+' has been slapped silly by a large trout by '+user.name+'' + (target ? " (" + target + ")" : ""));
+	},
+
 	hm: 'hourmute',
 	hourmute: function(target, room, user) {
 		if (!target) return this.parse('/help hourmute');
