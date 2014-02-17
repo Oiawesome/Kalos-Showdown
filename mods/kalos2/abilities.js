@@ -20,7 +20,20 @@ exports.BattleAbilities = {
 		onModifyMove: function(move) {
 			if (move.type in {'Poison':1}) {
 				move.affectedByImmunities = false;
+				if (!this.data.TypeChart[tarType]) continue;
+				if (tarType === 'Steel') {
+					totalTypeMod++;
+					continue;
+				}
+				var typeMod = this.data.TypeChart[tarType].damageTaken[type];
+				if (typeMod === 1) { // super-effective
+					totalTypeMod++;
+				}
+				if (typeMod === 2) { // resist
+					totalTypeMod--;
+				}
 			}
+			return totalTypeMod;
 		},
 		id: "corrosivepoison",
 		name: "Corrosive Poison",
