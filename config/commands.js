@@ -657,6 +657,16 @@ var commands = exports.commands = {
 			'- <a href="http://pokemonshowdown.com/replay/gennextou-37900768">QwietQwilfish vs pickdenis</a>');
 	},
 
+	xyani: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<img src="https://play.pokemonshowdown.com/sprites/xyani/'+target+'.gif">');
+	},
+
+	emote: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.addModCommand('|raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel3'+target+'.png">');
+	},
+
 	om: 'othermetas',
 	othermetas: function(target, room, user) {
 		if (!this.canBroadcast()) return;

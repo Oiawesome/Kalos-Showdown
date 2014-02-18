@@ -1,0 +1,5 @@
+[
+{"title":"Lobby","autojoin":true},
+{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
+{"title":"Circle Laddering"}
+]
