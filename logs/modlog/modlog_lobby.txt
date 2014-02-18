@@ -209,3 +209,43 @@
 [2014-02-18T03:31:54.212Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel37.png">
 [2014-02-18T03:38:12.398Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
 [2014-02-18T03:39:01.148Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
+[2014-02-18T03:42:02.793Z] (lobby) Oiawesome has been slapped silly by a large trout by Arhops
+[2014-02-18T03:43:36.015Z] (lobby) Arhops has been slapped silly by a large trout by Arhops
+[2014-02-18T03:46:03.925Z] (lobby) Arhops has been slapped silly by a large trout by Oiawesome (money)
+[2014-02-18T03:46:49.795Z] (lobby) Oiawesome has been slapped silly by a large trout by Arhops ((No you money!))
+[2014-02-18T03:52:33.736Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel31.png">
+[2014-02-18T03:52:37.231Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
+[2014-02-18T04:00:45.058Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel36.png">
+[2014-02-18T04:01:37.865Z] (lobby) Arhops has been slapped silly by a large trout by Oiawesome
+[2014-02-18T04:16:18.876Z] (lobby) Oiawesome has been slapped silly by a large trout by Arhops
+[2014-02-18T04:19:24.219Z] (lobby) Arhops has been slapped silly by a large trout by Oiawesome (WOW)
+[2014-02-18T04:20:08.438Z] (lobby) Oiawesome has been slapped silly by a large trout by Arhops (:))
+[2014-02-18T04:22:03.219Z] (lobby) (Oiawesome notes: enough silly slappin)
+[2014-02-18T13:23:57.507Z] (lobby) Leafshield declared Oi  is a fag
+[2014-02-18T13:24:03.195Z] (lobby) Leafshield declared imo
+[2014-02-18T13:54:23.403Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel35.png">
+[2014-02-18T14:13:02.657Z] (lobby) simsims2800 was promoted to Voice by Oiawesome.
+[2014-02-18T14:29:33.135Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel31.png">
+[2014-02-18T14:29:35.879Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
+[2014-02-18T14:31:39.800Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:37:24.076Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel36.png">
+[2014-02-18T14:40:40.838Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel38.png">
+[2014-02-18T14:41:44.118Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel36.png">
+[2014-02-18T14:42:50.227Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel34.png">
+[2014-02-18T14:45:42.160Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:42.825Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:43.577Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:44.079Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:44.579Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:45.079Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:45.580Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:46.081Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:46.583Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T14:45:51.653Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel38.png">
+[2014-02-18T14:45:59.257Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel37.png">
+[2014-02-18T14:51:08.073Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel35.png">
+[2014-02-18T14:57:43.172Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel37.png">
+[2014-02-18T15:11:54.447Z] (lobby) (Leafshield notes: Must avoid looking weird by talking to myself)
+[2014-02-18T15:11:56.587Z] (lobby) (Leafshield notes: shit)
+[2014-02-18T15:31:33.384Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
+[2014-02-18T15:54:43.327Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel35.png">

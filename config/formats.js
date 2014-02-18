@@ -19,6 +19,14 @@ exports.Formats = [
 		section: "Kalos 2",
 
                 mod: 'kalos2',
+		ruleset: ['K2 Pokemon', 'OHKO Clause', 'HP Percentage Mod'],
+		banlist: ['Wonder Guard', 'Shadow Tag', 'Arena Trap', 'Pure Power', 'Huge Power', 'Parental Bond']
+	},
+	{
+		name: "Kalos 2.0 BH",
+		section: "Kalos 2",
+
+                mod: 'kalos2',
 		ruleset: ['K2 Pokemon', 'Standard', 'Team Preview'],
 		banlist: []
 	},

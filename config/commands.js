@@ -662,6 +662,16 @@ var commands = exports.commands = {
 		this.sendReplyBox('<img src="https://play.pokemonshowdown.com/sprites/xyani/'+target+'.gif">');
 	},
 
+	xyaniback: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<img src="https://play.pokemonshowdown.com/sprites/xyani-back/'+target+'.gif">');
+	},
+
+	xyicon: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReply('|raw| <img src="http://www.serebii.net/pokedex-xy/icon/'+target+'.png">');
+	},
+
 	emote: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.addModCommand('|raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel3'+target+'.png">');
