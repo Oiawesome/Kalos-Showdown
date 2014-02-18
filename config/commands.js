@@ -677,6 +677,28 @@ var commands = exports.commands = {
 		this.addModCommand('|raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel3'+target+'.png">');
 	},
 
+	frt: 'forcerenameto',
+forcerenameto: function(target, room, user) {
+if (!target) return this.parse('/help forcerenameto');
+target = this.splitTarget(target);
+var targetUser = this.targetUser;
+if (!targetUser) {
+return this.sendReply("User " + this.targetUsername + " not found.");
+}
+if (!target) {
+return this.sendReply("No new name was specified.");
+}
+if (!this.can('forcerenameto', targetUser)) return false;
+
+if (targetUser.userid === toUserid(this.targetUser)) {
+var entry = targetUser.name + " was forcibly renamed to " + target + " by " + user.name + ".";
+this.privateModCommand("(" + entry + ")");
+targetUser.forceRename(target, null, true);
+} else {
+this.sendReply("User " + targetUser.name + " is no longer using that name.");
+}
+},
+
 	om: 'othermetas',
 	othermetas: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -723,17 +745,62 @@ var commands = exports.commands = {
 
 	k2data: 'kalosdata',
         kalos2data: 'kalosdata',
+        kalosbot: 'kalosdata',
 	kalosdata: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		target = toId(target);
 		var buffer = '';
 		var matched = false;
+		if (target === 'about') {
+			matched = true;
+			room.add('|c|~KalosBot|KalosBot is a bot created by user Oiawesome for the purpose displaying random data and data of new kalos 2 pokemon due to using an actual data for kalos 2 causes glitches up on the non custom client server');
+		}
+		if (target === 'kalos2') {
+			matched = true;
+			room.add('|c|~KalosBot|The Metagame these stats draw from is called Kalos 2 it was created by Various Contributors and the idea was spawned by user Oiawesome- Here is the link to the changelist: http://www.smogon.com/forums/threads/pet-mods-general-thread.3496012/#post-5108992');
+		}
+		if (target === 'quotecool') {
+			matched = true;
+			room.add('|c|~KalosBot|"[14:31:13] ~Oiawesome: man Kalos bot is so cool" MAN I FUCKING LOVE THIS GUY');
+		}
+		if (target === 'client') {
+			matched = true;
+			room.add('|c|~KalosBot|Dont forget to check out this servers custom client if you can, it includes amazing features like a custom teambuilder made for kalos 2 (if you dont play kalos 2 then try to just make teams on another server then import them to the custom client)- http://kalos.no-ip.biz');
+		}
 		if (target === 'megalatias') {
 			matched = true;
 			room.add('|c|~KalosBot|Mega Latias - Dragon/Fairy | Bursting Jets | 120/65/100/130/165/135 | 715 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
 		}
+		if (target === 'megalatios') {
+			matched = true;
+			room.add('|c|~KalosBot|Mega Latios - Dragon/Steel | Bursting Jets | 70/150/68/190/72/165 | 715 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
+		}
+		if (target === 'megayveltal') {
+			matched = true;
+			room.add('|c|~KalosBot|Mega Yveltal - Dark/Flying | Gale Wings | 105/185/90/175/85/115 | 755 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP');
+		}
+		if (target === 'megaxerneas') {
+			matched = true;
+			room.add('|c|~KalosBot|Mega Xerneas - Fairy/Grass | Natural Cure | 165/60/135/115/165/105 | 745 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP');
+		}
+		if (target === 'hoopa') {
+			matched = true;
+			room.add('|c|~KalosBot|Hoopa - Ghost/Psychic | Levitate/Dimension Warp(H) | 100/80/105/150/70/115 | 620 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
+		}
+		if (target === 'diancie') {
+			matched = true;
+			room.add('|c|~KalosBot|Diancie - Rock/Fairy | Levitate/Magic Bounce(H) | 100/70/80/105/150/115 | 620 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
+		}
+		if (target === 'volcanion') {
+			matched = true;
+			room.add('|c|~KalosBot|Volcanion - Water/Fire | Water Absorb/Flash Fire/Regenerator(H) | 115/90/90/140/150/85 | 670 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP');
+		}
+		if (target === 'arceusgod') {
+			matched = true;
+			room.add('|c|~KalosBot|Arceus God - Normal/Fairy | Protean | 140/140/140/140/140/140 | 840 BST | Kalos 2 Uber however banned from Kalos 2 BH | Low Kick/Grass Knot: 120 BP');
+		}
 		if (!matched) {
-			return this.sendReply('The Kalos2 entry "'+target+'" was not found. Try /kalosdata or /k2data for general help.');
+			room.add('|c|~KalosBot|The Kalos2 entry "'+target+'" was not found.');
 		}
 		this.sendReply(buffer);
 	},
@@ -818,34 +885,6 @@ this.logModCommand(user.name + ' used /leafshield to say ' + target);
 		return this.sendReply("Message \"" + message + "\" sent to " + this.targetUsername + ".");
 	},
 
-	hide: 'hideauth',
-	hideauth: function(target, room, user) {
-		if (!this.can('hideauth')) return false;
-		target = target || config.groups.default.global;
-		if (!config.groups.global[target]) {
-			target = config.groups.default.global;
-			this.sendReply("You have picked an invalid group, defaulting to '" + target + "'.");
-		} else if (config.groups.bySymbol[target].globalRank >= config.groups.bySymbol[user.group].globalRank)
-			return this.sendReply("The group you have chosen is either your current group OR one of higher rank. You cannot hide like that.");
-
-		user.getIdentity = function (roomid) {
-			var identity = Object.getPrototypeOf(this).getIdentity.call(this, roomid);
-			if (identity[0] === this.group)
-				return target + identity.slice(1);
-			return identity;
-		};
-		user.updateIdentity();
-		return this.sendReply("You are now hiding your auth as '" + target + "'.");
-	},
-
-	show: 'showauth',
-	showauth: function(target, room, user) {
-		if (!this.can('hideauth')) return false;
-		delete user.getIdentity;
-		user.updateIdentity();
-		return this.sendReply("You are now showing your authority!");
-	},
-
 	sk: 'superkick',
 	superkick: function(target, room, user){
 		if (!target) return;
@@ -855,7 +894,7 @@ this.logModCommand(user.name + ' used /leafshield to say ' + target);
 			return this.sendReply("User " + this.targetUsername + " not found.");
 		}
 		if (!this.can('warn', targetUser, room)) return false;
-		var msg = "kicked by " + user.name + (!target?"":" (" + target + ")") + ".";
+		var msg = "kicked by KalosBot" + (!target?"":" (" + target + ")") + ".";
 		room.add(targetUser.name + " was " + msg);
 		targetUser.popup("You have been " + msg);
 		targetUser.disconnectAll();

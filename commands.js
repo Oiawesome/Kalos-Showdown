@@ -363,6 +363,7 @@ var commands = exports.commands = {
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '"+target+"' could not be joined.");
 		}
+		if (room.id == "lobby") this.sendReplyBox('Dont forget to check out this servers <a href="http://kalos.no-ip.biz">custom client</a> if you can, it includes amazing features like a custom teambuilder made for kalos 2 (if you dont play kalos 2 then try to just make teams on another server then import them to the custom client)');
 	},
 
 	rb: 'roomban',
