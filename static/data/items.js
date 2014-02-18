@@ -4322,7 +4322,7 @@ exports.BattleItems = {
                 megaStone: "Latios-Mega",
                 num: -6,
                 gen: 6,
-                desc: "Mega-evolves Yveltal."
+                desc: "Mega-evolves Latias."
         },
         "latitered": {
                 id: "latitered",
@@ -4331,7 +4331,7 @@ exports.BattleItems = {
                 megaStone: "Latias-Mega",
                 num: -6,
                 gen: 6,
-                desc: "Mega-evolves Yveltal."
+                desc: "Mega-evolves Latios."
         },
         "godstone": {
                 id: "godstone",

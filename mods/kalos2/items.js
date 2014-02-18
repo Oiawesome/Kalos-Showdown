@@ -29,6 +29,11 @@ exports.BattleItems = {
                 name: "Xernite",
                 spritenum: 0,              
                 megaStone: "Xerneas-Mega",
+		megaEvolves: "Xerneas",
+		onTakeItem: function(item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
                 num: -6,
                 gen: 6,
                 desc: "Mega-evolves Xerneas."
@@ -38,6 +43,11 @@ exports.BattleItems = {
                 name: "Yvelite",
                 spritenum: 0,              
                 megaStone: "Yveltal-Mega",
+		megaEvolves: "Yveltal",
+		onTakeItem: function(item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
                 num: -6,
                 gen: 6,
                 desc: "Mega-evolves Yveltal."
@@ -47,6 +57,11 @@ exports.BattleItems = {
                 name: "Latite-Blue",
                 spritenum: 0,              
                 megaStone: "Latios-Mega",
+		megaEvolves: "Latios",
+		onTakeItem: function(item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
                 num: -6,
                 gen: 6,
                 desc: "Mega-evolves Yveltal."
@@ -56,6 +71,11 @@ exports.BattleItems = {
                 name: "Latite-Red",
                 spritenum: 0,         
                 megaStone: "Latias-Mega",
+		megaEvolves: "Latias",
+		onTakeItem: function(item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
                 num: -6,
                 gen: 6,
                 desc: "Mega-evolves Yveltal."
