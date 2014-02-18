@@ -251,3 +251,5 @@
 [2014-02-18T15:54:43.327Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel35.png">
 [2014-02-18T18:27:02.862Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
 [2014-02-18T18:31:44.726Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
+[2014-02-18T20:37:18.394Z] (lobby) Oiawesome used /joim to say /joim is the new /birkal lfgi
+[2014-02-18T20:38:33.981Z] (lobby) Oiawesome used /leafshield to say isn't this better

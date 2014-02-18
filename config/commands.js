@@ -738,11 +738,12 @@ var commands = exports.commands = {
 		this.sendReply(buffer);
 	},
 
-        joim: function(target, room, user){
+        ls: 'leafshield',
+        leafshield: function(target, room, user){
 if(!this.canBroadcast()|| !user.can('broadcast')) return this.sendReply('/joim - Access Denied.');
 if(!target) return this.sendReply('Insufficent Parameters.');
-room.add('|c|Joim|/me '+ target);
-this.logModCommand(user.name + ' used /joim to say ' + target);
+room.add('|c|Leafshield|/me '+ target);
+this.logModCommand(user.name + ' used /leafshield to say ' + target);
 },
 
 	reminders: 'reminder',
