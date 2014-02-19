@@ -363,7 +363,8 @@ var commands = exports.commands = {
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '"+target+"' could not be joined.");
 		}
-		if (room.id == "lobby") this.sendReplyBox('Dont forget to check out this servers <a href="http://kalos.no-ip.biz">custom client</a> if you can, it includes amazing features like a custom teambuilder made for kalos 2 (if you dont play kalos 2 then try to just make teams on another server then import them to the custom client)');
+		if (target.toLowerCase() == "lobby") 
+                this.sendReply('|raw| <img src="http://www.serebii.net/pokedex-xy/icon/003-m.png"><b>Welcome To Kalos!</b><img src="http://www.serebii.net/pokedex-xy/icon/003-m.png">\n|c|~KalosBot|Dont forget to check out this servers custom client !! http://kalos.no-ip.biz !! if you can, it includes amazing features like a custom teambuilder made for kalos 2 (if you dont play kalos 2 then try to just make teams on another server then import them to the custom client)');
 	},
 
 	rb: 'roomban',
@@ -455,8 +456,6 @@ var commands = exports.commands = {
 	 * Moderating: Punishments
 	 *********************************************************/
 
-	kick: 'warn',
-	k: 'warn',
 	warn: function(target, room, user) {
 		if (!target) return this.parse('/help warn');
 

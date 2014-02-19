@@ -7,3 +7,4 @@
 [2014-02-18T03:31:34.369Z] (staff) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel37.png">
 [2014-02-18T03:31:35.976Z] (staff) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel38.png">
 [2014-02-18T03:31:37.802Z] (staff) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-18T23:38:15.511Z] (staff) mlgstorm was promoted to Voice by Oiawesome.

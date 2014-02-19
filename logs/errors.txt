@@ -124,3 +124,39 @@ user = oiawesome
 ip = 127.0.0.1
 roomid = 
 message = |!kalosbot wrong
+
+TypeError: Object #<ChatRoom> has no method 'sendReply'
+    at Object.exports.commands.kalosdata (/home/osher/Kalos-Showdown/config/commands.js:760:9)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |!kalosbot kalos2
+
+ReferenceError: private is not defined
+    at Object.exports.commands.kalosdata (/home/osher/Kalos-Showdown/config/commands.js:760:4)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |!kalosbot kalos2

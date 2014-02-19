@@ -753,54 +753,58 @@ this.sendReply("User " + targetUser.name + " is no longer using that name.");
 		var matched = false;
 		if (target === 'about') {
 			matched = true;
-			room.add('|c|~KalosBot|KalosBot is a bot created by user Oiawesome for the purpose displaying random data and data of new kalos 2 pokemon due to using an actual data for kalos 2 causes glitches up on the non custom client server');
+			buffer += '|c|~KalosBot|KalosBot is a bot created by user Oiawesome for the purpose displaying random data and data of new kalos 2 pokemon due to using an actual data for kalos 2 causes glitches up on the non custom client server';
 		}
 		if (target === 'kalos2') {
 			matched = true;
-			room.add('|c|~KalosBot|The Metagame these stats draw from is called Kalos 2 it was created by Various Contributors and the idea was spawned by user Oiawesome- Here is the link to the changelist: http://www.smogon.com/forums/threads/pet-mods-general-thread.3496012/#post-5108992');
+			buffer += '|c|~KalosBot|The Metagame these stats draw from is called Kalos 2 it was created by Various Contributors and the idea was spawned by user Oiawesome- Here is the link to the changelist: http://www.smogon.com/forums/threads/pet-mods-general-thread.3496012/#post-5108992';
 		}
 		if (target === 'quotecool') {
 			matched = true;
-			room.add('|c|~KalosBot|"[14:31:13] ~Oiawesome: man Kalos bot is so cool" MAN I FUCKING LOVE THIS GUY');
+			buffer += '|c|~KalosBot|"[14:31:13] ~Oiawesome: man Kalos bot is so cool" MAN I FUCKING LOVE THIS GUY';
+		}
+		if (target === 'quoteinspiration') {
+			matched = true;
+			buffer += '|c|~KalosBot|"[15:01]&V4: if cant find - [15:01] &V4: make a way"- greatest quote, so inspirational .cry';
 		}
 		if (target === 'client') {
 			matched = true;
-			room.add('|c|~KalosBot|Dont forget to check out this servers custom client if you can, it includes amazing features like a custom teambuilder made for kalos 2 (if you dont play kalos 2 then try to just make teams on another server then import them to the custom client)- http://kalos.no-ip.biz');
+			buffer += '|c|~KalosBot|Dont forget to check out this servers custom client if you can, it includes amazing features like a custom teambuilder made for kalos 2 (if you dont play kalos 2 then try to just make teams on another server then import them to the custom client)- http://kalos.no-ip.biz';
 		}
 		if (target === 'megalatias') {
 			matched = true;
-			room.add('|c|~KalosBot|Mega Latias - Dragon/Fairy | Bursting Jets | 120/65/100/130/165/135 | 715 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
+			buffer += '|c|~KalosBot|Mega Latias - Dragon/Fairy | Bursting Jets | 120/65/100/130/165/135 | 715 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP';
 		}
 		if (target === 'megalatios') {
 			matched = true;
-			room.add('|c|~KalosBot|Mega Latios - Dragon/Steel | Bursting Jets | 70/150/68/190/72/165 | 715 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
+			buffer += '|c|~KalosBot|Mega Latios - Dragon/Steel | Bursting Jets | 70/150/68/190/72/165 | 715 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP';
 		}
 		if (target === 'megayveltal') {
 			matched = true;
-			room.add('|c|~KalosBot|Mega Yveltal - Dark/Flying | Gale Wings | 105/185/90/175/85/115 | 755 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP');
+			buffer += '|c|~KalosBot|Mega Yveltal - Dark/Flying | Gale Wings | 105/185/90/175/85/115 | 755 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP';
 		}
 		if (target === 'megaxerneas') {
 			matched = true;
-			room.add('|c|~KalosBot|Mega Xerneas - Fairy/Grass | Natural Cure | 165/60/135/115/165/105 | 745 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP');
+			buffer += '|c|~KalosBot|Mega Xerneas - Fairy/Grass | Natural Cure | 165/60/135/115/165/105 | 745 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP';
 		}
 		if (target === 'hoopa') {
 			matched = true;
-			room.add('|c|~KalosBot|Hoopa - Ghost/Psychic | Levitate/Dimension Warp(H) | 100/80/105/150/70/115 | 620 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
+			buffer += '|c|~KalosBot|Hoopa - Ghost/Psychic | Levitate/Dimension Warp(H) | 100/80/105/150/70/115 | 620 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP';
 		}
 		if (target === 'diancie') {
 			matched = true;
-			room.add('|c|~KalosBot|Diancie - Rock/Fairy | Levitate/Magic Bounce(H) | 100/70/80/105/150/115 | 620 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP');
+			buffer += '|c|~KalosBot|Diancie - Rock/Fairy | Levitate/Magic Bounce(H) | 100/70/80/105/150/115 | 620 BST | Kalos 2 Uber | Low Kick/Grass Knot: 60 BP';
 		}
 		if (target === 'volcanion') {
 			matched = true;
-			room.add('|c|~KalosBot|Volcanion - Water/Fire | Water Absorb/Flash Fire/Regenerator(H) | 115/90/90/140/150/85 | 670 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP');
+			buffer += '|c|~KalosBot|Volcanion - Water/Fire | Water Absorb/Flash Fire/Regenerator(H) | 115/90/90/140/150/85 | 670 BST | Kalos 2 Uber | Low Kick/Grass Knot: 120 BP';
 		}
 		if (target === 'arceusgod') {
 			matched = true;
-			room.add('|c|~KalosBot|Arceus God - Normal/Fairy | Protean | 140/140/140/140/140/140 | 840 BST | Kalos 2 Uber however banned from Kalos 2 BH | Low Kick/Grass Knot: 120 BP');
+			buffer += '|c|~KalosBot|Arceus God - Normal/Fairy | Protean | 140/140/140/140/140/140 | 840 BST | Kalos 2 Uber however banned from Kalos 2 BH | Low Kick/Grass Knot: 120 BP';
 		}
 		if (!matched) {
-			room.add('|c|~KalosBot|The Kalos2 entry "'+target+'" was not found.');
+			buffer += '|c|~KalosBot|The Kalos2 entry "'+target+'" was not found.';
 		}
 		this.sendReply(buffer);
 	},
@@ -885,8 +889,8 @@ this.logModCommand(user.name + ' used /leafshield to say ' + target);
 		return this.sendReply("Message \"" + message + "\" sent to " + this.targetUsername + ".");
 	},
 
-	sk: 'superkick',
-	superkick: function(target, room, user){
+	k: 'kick',
+	kick: function(target, room, user){
 		if (!target) return;
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
