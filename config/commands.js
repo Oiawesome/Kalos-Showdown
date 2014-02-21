@@ -809,6 +809,11 @@ this.sendReply("User " + targetUser.name + " is no longer using that name.");
 		this.sendReply(buffer);
 	},
 
+	wiki: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReply('|c|~KalosBot|http://en.wikipedia.org/wiki/'+target+'');
+	},
+
         ls: 'leafshield',
         leafshield: function(target, room, user){
 if(!this.canBroadcast()|| !user.can('broadcast')) return this.sendReply('/joim - Access Denied.');

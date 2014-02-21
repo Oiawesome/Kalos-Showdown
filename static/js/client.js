@@ -1414,7 +1414,7 @@
 			'click button': 'dispatchClickButton'
 		},
 		initialize: function() {
-			this.$el.html('<img class="logo" src="' + Tools.resourcePrefix + 'pokemonshowdownbeta.png" alt="Pok&eacute;mon Showdown! (beta)" /><div class="maintabbarbottom"></div><div class="tabbar maintabbar"><div class="inner"></div></div><div class="userbar"></div>');
+			this.$el.html('<img class="logo" src="./pokemonshowdownbeta.png" alt="Pok&eacute;mon Showdown! (beta)" /><div class="maintabbarbottom"></div><div class="tabbar maintabbar"><div class="inner"></div></div><div class="userbar"></div>');
 			this.$tabbar = this.$('.maintabbar .inner');
 			// this.$sidetabbar = this.$('.sidetabbar');
 			this.$userbar = this.$('.userbar');
@@ -2257,7 +2257,7 @@
 			buf += '<p><button name="avatars">Change avatar</button></p>';
 
 			buf += '<hr />';
-			buf += '<p><label class="optlabel">Background: <select name="bg"><option value="">Horizon</option><option value="#546bac url(/fx/client-bg-xy.jpg) no-repeat left center fixed">Xerneas & Yveltal</option><option value="#546bac url(/fx/client-bg-3.jpg) no-repeat left center fixed">Waterfall</option><option value="#546bac url(/fx/client-bg-ocean.jpg) no-repeat left center fixed">Ocean</option><option value="#344b6c"'+(Tools.prefs('bg')?' selected="selected"':'')+'>Solid blue</option></select></label></p>';
+			buf += '<p><label class="optlabel">Background: <select name="bg"><option value="#546abc url(fx/client-bg-horizon.jpg) no-repeat left center fixed">Horizon</option><option value="#546bac url(/fx/client-bg-xy.jpg) no-repeat left center fixed">Xerneas & Yveltal</option><option value="#546bac url(/fx/client-bg-3.jpg) no-repeat left center fixed">Waterfall</option><option value="#546bac url(/fx/client-bg-ocean.jpg) no-repeat left center fixed">Ocean</option><option value="#344b6c"'+(Tools.prefs('bg')?' selected="selected"':'')+'>Solid blue</option></select></label></p>';
 			buf += '<p><label class="optlabel"><input type="checkbox" name="noanim"'+(Tools.prefs('noanim')?' checked':'')+' /> Disable animations</label></p>';
 			buf += '<p><label class="optlabel"><input type="checkbox" name="nolobbypm"'+(Tools.prefs('nolobbypm')?' checked':'')+' /> Don\'t show PMs in lobby chat</label></p>';
 
@@ -2332,7 +2332,7 @@
 		setBg: function(e) {
 			var bg = e.currentTarget.value;
 			Tools.prefs('bg', bg);
-			if (!bg) bg = '#546bac url(/fx/client-bg-horizon.jpg) no-repeat left center fixed';
+			if (!bg) bg = '#546bac url(/fx/client-bg-xy.jpg) no-repeat left center fixed';
 			$(document.body).css({
 				background: bg,
 				'background-size': 'cover'
@@ -2443,7 +2443,7 @@
 			var warning = ('warning' in data);
 			var buf = '';
 			if (warning) {
-				buf += '<p><strong style="color:red">'+(Tools.escapeHTML(data.warning)||'You have been warned for breaking the rules.')+'</strong></p>';
+				buf += '<p><strong style="color:red">'+(Tools.escapeHTML(data.warning)||'You have been warned for breaking the rules you dumbass.')+'</strong></p>';
 			}
 			buf += '<h2>Pok&eacute;mon Showdown Rules</h2>';
 			buf += '<b>Global</b><br /><br /><b>1.</b> Be nice to people. Respect people. Don\'t be rude to people.<br /><br /><b>2.</b> PS is based in the US. Follow US laws. Don\'t distribute pirated material, and don\'t slander others. PS is available to users younger than 18, so porn is strictly forbidden.<br /><br /><b>3.</b>&nbsp;No cheating. Don\'t exploit bugs to gain an unfair advantage. Don\'t game the system (by intentionally losing against yourself or a friend in a ladder match, by timerstalling, etc).<br /><b></b><br /><b>4.</b>&nbsp;English only.<br /><br /><b>5.</b> The First Amendment does not apply to PS, since PS is not a government organization.<br /><br /><b>6.</b> Moderators have discretion to punish any behaviour they deem inappropriate, whether or not it\'s on this list. If you disagree with a moderator ruling, appeal to a leader (a user with &amp; next to their name) or Discipline Appeals.<br /><br />';

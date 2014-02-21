@@ -260,3 +260,11 @@
 [2014-02-19T00:33:00.696Z] (lobby) (Keep it Playful notes: I was just like how did mlg get a +)
 [2014-02-19T00:33:17.559Z] (lobby) (Keep it Playful notes: :P)
 [2014-02-19T00:37:11.569Z] (lobby) (Oiawesome notes: lol)
+[2014-02-19T01:20:39.400Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
+[2014-02-19T02:02:06.961Z] (lobby) (Jewzilla notes: that's nice )
+[2014-02-19T02:12:17.381Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel36.png">
+[2014-02-19T03:06:12.471Z] (lobby) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel30.png">
+[2014-02-19T03:07:42.162Z] (lobby) Oiawesome used /leafshield to say /lafshield
+[2014-02-19T03:07:45.082Z] (lobby) Oiawesome used /leafshield to say /leafshield
+[2014-02-19T03:09:43.666Z] (lobby) Arhops used /leafshield to say :o
+[2014-02-19T04:33:20.489Z] (lobby) (Oiawesome was forcibly renamed to oiawesome afk by Oiawesome.)
