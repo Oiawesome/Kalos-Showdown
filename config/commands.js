@@ -743,10 +743,7 @@ this.sendReply("User " + targetUser.name + " is no longer using that name.");
 		this.sendReplyBox(buffer);
 	}, 
 
-	k2data: 'kalosdata',
-        kalos2data: 'kalosdata',
-        kalosbot: 'kalosdata',
-	kalosdata: function(target, room, user) {
+	kalosbot: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		target = toId(target);
 		var buffer = '';
@@ -812,6 +809,63 @@ this.sendReply("User " + targetUser.name + " is no longer using that name.");
 	wiki: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReply('|c|~KalosBot|http://en.wikipedia.org/wiki/'+target+'');
+	},
+
+	k2stats: 'k2data',
+	k2dex: 'k2data',
+	k2pokedex: 'k2data',
+	k2data: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		
+		function getAbilities(poke) {
+			if (!poke.abilities) return;
+			var abilities = new Array();
+			for (var i in poke.abilities) {
+				if (i === 'H') {
+					abilities.push('<i>'+poke.abilities[i]+'</i>');
+				} else {
+					abilities.push(poke.abilities[i]);
+				}
+			}
+			return abilities.join(' | ');
+		}
+		
+		function getStats(poke) {
+			var baseStats = poke.baseStats;
+			if (!baseStats) return;
+			var text = '';
+			text += baseStats['hp'] + ' HP | ';
+			text += baseStats['atk'] + ' Att | ';
+			text += baseStats['def'] + ' Def | ';
+			text += baseStats['spa'] + ' SpA | ';
+			text += baseStats['spd'] + ' SpD | ';
+			text += baseStats['spe'] + ' Spe';
+			return text;
+		}
+		
+		function getBST(poke) {
+			var baseStats = poke.baseStats;
+			if (!baseStats) return;
+			var BST = 0;
+			for (var i in baseStats) {
+				BST += baseStats[i];
+			}
+			return '<b>'+BST+'</b>';
+		}
+
+		var k2data = '';
+		newTargets = Tools.mod('kalos2').dataSearch(target);
+		if (newTargets && newTargets.length) {
+			for (var i = 0; i < newTargets.length; i++) {
+				if (newTargets[i].id !== targetId && !Tools.data.Aliases[targetId] && !i) {
+					k2data = "No Pokemon, item, move or ability named '" + target + "' was found. Showing the data of '" + newTargets[0].name + "' instead.\n";
+				}
+				if (newTargets[i].searchType === 'pokemon' && !Tools.data.Pokedex[newTargets[i].id]) {
+					k2data += '|c|~KalosBot|' + '' + newTargets[i].name + '|' + newTargets[i].types.join(' / ') + ' Abilities:' + getAbilities(newTargets[i]) + 'Stats:' + getStats(newTargets[i]) + '<br><b>BST:</b> ' + getBST(newTargets[i]) + '</div>';
+		} else {
+			k2data = "No Pokemon, item, move or ability named '" + target + "' was found. (Check your spelling?)";
+		}
+		this.sendReply(k2data);
 	},
 
         ls: 'leafshield',

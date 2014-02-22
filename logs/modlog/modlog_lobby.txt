@@ -268,3 +268,5 @@
 [2014-02-19T03:07:45.082Z] (lobby) Oiawesome used /leafshield to say /leafshield
 [2014-02-19T03:09:43.666Z] (lobby) Arhops used /leafshield to say :o
 [2014-02-19T04:33:20.489Z] (lobby) (Oiawesome was forcibly renamed to oiawesome afk by Oiawesome.)
+[2014-02-22T01:12:39.359Z] (lobby) deafmints was banned by Oiawesome. (115.64.67.232)
+[2014-02-22T01:12:46.418Z] (lobby) FluffyMints was banned by Oiawesome. (dumbass clause) (97.81.1.196)
