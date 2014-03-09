@@ -160,3 +160,615 @@ user = oiawesome
 ip = 127.0.0.1
 roomid = 
 message = |!kalosbot kalos2
+
+ReferenceError: getBaseStats is not defined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:296:181)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |!data volcanion
+
+ReferenceError: getbaseStats is not defined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:296:185)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |!data yvletal-mega
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:298:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = keepitplayful
+ip = 70.35.117.60
+roomid = 
+message = |/data dimension warp
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:298:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at BattleRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1125:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = leafshield
+ip = 72.240.104.173
+roomid = battle-kalos20ou-61
+message = battle-kalos20ou-61|/data powder
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:298:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = arhops
+ip = 67.170.97.141
+roomid = 
+message = |!data water view
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:298:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = leafshield
+ip = 72.240.104.173
+roomid = 
+message = |!data water veil
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = arhops
+ip = 67.170.97.141
+roomid = staff
+message = staff|!data dark aura
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = staff
+message = staff|!data symbiosis
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = pikachuun
+ip = 174.49.81.218
+roomid = 
+message = |!data iron fist
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = pikachuun
+ip = 174.49.81.218
+roomid = 
+message = |/data iron fist
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = shieldofleaves
+ip = 72.240.198.166
+roomid = 
+message = |/data rock tomb
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = jewzilla
+ip = 71.227.46.148
+roomid = 
+message = |/data weakness policy
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = jewzilla
+ip = 71.227.46.148
+roomid = 
+message = |!data helix fossil
+
+ReferenceError: groupName is not defined
+    at Object.exports.commands.join (/home/osher/Kalos-Showdown/commands.js:367:54)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/join lobby
+
+ReferenceError: groupName is not defined
+    at Object.exports.commands.join (/home/osher/Kalos-Showdown/commands.js:367:58)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/join lobby
+
+ReferenceError: groupName is not defined
+    at Object.exports.commands.join (/home/osher/Kalos-Showdown/commands.js:367:496)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/join lobby
+
+ReferenceError: groupName is not defined
+    at Object.exports.commands.join (/home/osher/Kalos-Showdown/commands.js:367:496)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/join lobby
+
+ReferenceError: group is not defined
+    at Object.exports.commands.join (/home/osher/Kalos-Showdown/commands.js:367:496)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/join lobby
+
+ReferenceError: groupName is not defined
+    at Object.exports.commands.join (/home/osher/Kalos-Showdown/commands.js:367:496)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |/join lobby
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = leafshield
+ip = 72.240.104.173
+roomid = 
+message = |/data powder
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at BattleRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1125:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = u
+ip = 71.116.34.249
+roomid = battle-kalos20ou-134
+message = battle-kalos20ou-134|!data oblivion wing
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = leafshield
+ip = 72.240.104.173
+roomid = 
+message = |/data after you
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at BattleRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1125:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = spartanmalice
+ip = 117.193.250.88
+roomid = battle-kalos20ou-135
+message = battle-kalos20ou-135|/data oblivion wing
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = jewzilla
+ip = 71.227.46.148
+roomid = 
+message = |/data speed boost
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at BattleRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1125:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = rayschoon
+ip = 204.108.212.233
+roomid = battle-randombattle-159
+message = battle-randombattle-159|/data unburden
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at BattleRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1125:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = rayschoon
+ip = 204.108.212.233
+roomid = battle-randombattle-159
+message = battle-randombattle-159|/data unburden
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = leafshield
+ip = 72.240.104.173
+roomid = 
+message = |/data outrage
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = oiawesome
+ip = 127.0.0.1
+roomid = 
+message = |!data luster perge
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = macrarazy
+ip = 119.159.84.237
+roomid = 
+message = |/data luster purge
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = asterat
+ip = 108.46.195.58
+roomid = 
+message = |!data Cunt
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = u
+ip = 71.116.34.249
+roomid = 
+message = |!data bitch
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = asterat
+ip = 108.46.195.58
+roomid = 
+message = |!data Bitch
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:201:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1488:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1253:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = u
+ip = 71.116.34.249
+roomid = 
+message = |!data bitch
+
+TypeError: Cannot call method 'join' of undefined
+    at Object.exports.commands.data (/home/osher/Kalos-Showdown/config/commands.js:317:85)
+    at Object.exports.parse (/home/osher/Kalos-Showdown/command-parser.js:207:31)
+    at ChatRoom.chat (/home/osher/Kalos-Showdown/rooms.js:1484:27)
+    at User.chat (/home/osher/Kalos-Showdown/users.js:1266:9)
+    at Object.socketReceive (/home/osher/Kalos-Showdown/users.js:197:13)
+    at Worker.<anonymous> (/home/osher/Kalos-Showdown/sockets.js:46:11)
+    at Worker.EventEmitter.emit (events.js:98:17)
+    at ChildProcess.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Additional information:
+user = jewzilla
+ip = 69.14.214.176
+roomid = 
+message = |/data chople berry

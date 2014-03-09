@@ -17,3 +17,8 @@
 [2014-02-19T01:21:28.767Z] (staff) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel37.png">
 [2014-02-19T01:21:32.998Z] (staff) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel38.png">
 [2014-02-19T01:21:36.786Z] (staff) |raw| <img src="https://s3.amazonaws.com/mibbit/gfx/smilies/yel39.png">
+[2014-02-23T04:12:43.144Z] (staff) (Oiawesome was forcibly renamed to Oiawesome-Away BBT by Oiawesome.)
+[2014-03-01T15:44:42.002Z] (staff) (Oiawesome was forcibly renamed to Doing Something else don't bother me by Oiawesome.)
+[2014-03-01T15:45:44.088Z] (staff) (Doing Something else don't bother me was forcibly renamed to OIawesome-Away by Doing Something else don't bother me.)
+[2014-03-01T15:45:54.360Z] (staff) (OIawesome-Away was forcibly renamed to OIawesome-Away by OIawesome-Away.)
+[2014-03-01T15:46:00.698Z] (staff) (OIawesome-Away was forcibly renamed to Oiawesome-Away by OIawesome-Away.)

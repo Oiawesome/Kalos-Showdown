@@ -1,5 +1,7 @@
 [
 {"title":"Lobby","autojoin":true},
 {"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
-{"title":"Circle Laddering","isPrivate":true}
+{"title":"Circle Laddering","isPrivate":true},
+{"title":"Tourneys","isPrivate":true},
+{"title":"Tournaments","auth":{"givemdad":"#"}}
 ]

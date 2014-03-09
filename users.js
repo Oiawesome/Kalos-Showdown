@@ -288,7 +288,7 @@ var User = (function () {
 
 		if (connection.user) connection.user = this;
 		this.connections = [connection];
-		this.ips = {}
+		this.ips = {};
 		this.ips[connection.ip] = 1;
 		// Note: Using the user's latest IP for anything will usually be
 		//       wrong. Most code should use all of the IPs contained in
@@ -754,6 +754,7 @@ var User = (function () {
 						user.muteDuration = Object.merge(user.muteDuration, this.muteDuration);
 						this.mutedRooms = {};
 						this.muteDuration = {};
+						this.locked = false;
 					}
 				}
 				for (var i=0; i<this.connections.length; i++) {
@@ -1136,14 +1137,26 @@ var User = (function () {
 			connection.popup("Your team was rejected for the following reasons:\n\n- "+details.replace(/\n/g, '\n- '));
 			callback(false);
 		} else {
-			this.team = details;
+			if (details) {
+				this.team = details;
+				ResourceMonitor.teamValidatorChanged++;
+			} else {
+				ResourceMonitor.teamValidatorUnchanged++;
+			}
 			callback(true);
 		}
 	};
 	User.prototype.updateChallenges = function() {
+		var challengeTo = this.challengeTo;
+		if (challengeTo) {
+			challengeTo = {
+				to: challengeTo.to,
+				format: challengeTo.format
+			}
+		}
 		this.send('|updatechallenges|'+JSON.stringify({
-			challengesFrom: this.challengesFrom,
-			challengeTo: this.challengeTo
+			challengesFrom: Object.map(this.challengesFrom, 'format'),
+			challengeTo: challengeTo
 		}));
 	};
 	User.prototype.makeChallenge = function(user, format/*, isPrivate*/) {

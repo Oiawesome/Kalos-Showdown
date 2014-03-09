@@ -52,17 +52,10 @@ global.toUserid = toId;
 /**
  * Validates a username or Pokemon nickname
  */
-var bannedNameStartChars = {'~':1, '&':1, '@':1, '%':1, '+':1, '-':1, '!':1, '?':1, '#':1, ' ':1};
 global.toName = function(name) {
 	name = string(name);
 	name = name.replace(/[\|\s\[\]\,]+/g, ' ').trim();
-	while (bannedNameStartChars[name.charAt(0)]) {
-		name = name.substr(1);
-	}
-	if (name.length > 18) name = name.substr(0,18);
-	if (config.namefilter) {
-		name = config.namefilter(name);
-	}
+	if (name.length > 18) name = name.substr(0,18).trim();
 	return name;
 };
 
@@ -86,7 +79,7 @@ global.sanitize = function(str, strEscape) {
 global.string = function(str) {
 	if (typeof str === 'string' || typeof str === 'number') return ''+str;
 	return '';
-}
+};
 
 /**
  * Converts any variable to an integer (numbers get floored, non-numbers
@@ -325,7 +318,7 @@ var BattlePokemon = (function() {
 			if (statName === nature.plus) stat *= 1.1;
 			if (statName === nature.minus) stat *= 0.9;
 			this.baseStats[statName] = Math.floor(stat);
-		};
+		}
 
 		this.maxhp = Math.floor(Math.floor(2*this.template.baseStats['hp']+this.set.ivs['hp']+Math.floor(this.set.evs['hp']/4)+100)*this.level / 100 + 10);
 		if (this.template.baseStats['hp'] === 1) this.maxhp = 1; // shedinja
@@ -345,6 +338,7 @@ var BattlePokemon = (function() {
 	BattlePokemon.prototype.illusion = null;
 	BattlePokemon.prototype.fainted = false;
 	BattlePokemon.prototype.lastItem = '';
+	BattlePokemon.prototype.ateBerry = false;
 	BattlePokemon.prototype.status = '';
 	BattlePokemon.prototype.position = 0;
 
@@ -817,7 +811,7 @@ var BattlePokemon = (function() {
 			return true;
 		}
 		return false;
-	}
+	};
 	BattlePokemon.prototype.hasMove = function(moveid) {
 		moveid = toId(moveid);
 		if (moveid.substr(0,11) === 'hiddenpower') moveid = 'hiddenpower';
@@ -953,6 +947,7 @@ var BattlePokemon = (function() {
 			this.item = '';
 			this.itemData = {id: '', target: this};
 			this.usedItemThisTurn = true;
+			this.ateBerry = true;
 			return true;
 		}
 		return false;
@@ -985,6 +980,7 @@ var BattlePokemon = (function() {
 			this.item = '';
 			this.itemData = {id: '', target: this};
 			this.usedItemThisTurn = true;
+			this.battle.runEvent('AfterUseItem', this, null, null, item);
 			return true;
 		}
 		return false;
@@ -1026,9 +1022,8 @@ var BattlePokemon = (function() {
 		if (noForce && this.ability === ability.id) {
 			return false;
 		}
-		if (ability.id === 'multitype' || ability.id === 'illusion' || ability.id === 'stancechange' || this.ability === 'multitype') {
-			return false;
-		}
+		if (ability.id in {illusion:1, multitype:1, stancechange:1}) return false;
+		if (this.ability in {multitype:1, stancechange:1}) return false;
 		this.ability = ability.id;
 		this.abilityData = {id: ability.id, target: this};
 		if (ability.id) {
@@ -1046,6 +1041,7 @@ var BattlePokemon = (function() {
 		return this.battle.getNature(this.set.nature);
 	};
 	BattlePokemon.prototype.addVolatile = function(status, source, sourceEffect) {
+		var result;
 		if (!this.hp) return false;
 		status = this.battle.getEffect(status);
 		if (this.battle.event) {
@@ -1058,7 +1054,7 @@ var BattlePokemon = (function() {
 			return this.battle.singleEvent('Restart', status, this.volatiles[status.id], this, source, sourceEffect);
 		}
 		if (!this.runImmunity(status.id)) return false;
-		var result = this.battle.runEvent('TryAddVolatile', this, source, sourceEffect, status);
+		result = this.battle.runEvent('TryAddVolatile', this, source, sourceEffect, status);
 		if (!result) {
 			this.battle.debug('add volatile ['+status.id+'] interrupted');
 			return result;
@@ -1078,7 +1074,7 @@ var BattlePokemon = (function() {
 		if (status.durationCallback) {
 			this.volatiles[status.id].duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 		}
-		var result = this.battle.singleEvent('Start', status, this.volatiles[status.id], this, source, sourceEffect);
+		result = this.battle.singleEvent('Start', status, this.volatiles[status.id], this, source, sourceEffect);
 		if (!result) {
 			// cancel
 			delete this.volatiles[status.id];
@@ -1370,7 +1366,7 @@ var Battle = (function() {
 				var proto = Object.create(tools);
 				for (var i in Battle.prototype) {
 					proto[i] = Battle.prototype[i];
-				};
+				}
 				var battle = Object.create(proto);
 				var ret = Object.create(battle);
 				tools.install(ret);
@@ -1409,11 +1405,11 @@ var Battle = (function() {
 		this.messageLog = [];
 
 		// use a random initial seed (64-bit, [high -> low])
-		this.seed = [Math.floor(Math.random() * 0x10000),
+		this.startingSeed = this.seed = [Math.floor(Math.random() * 0x10000),
 			Math.floor(Math.random() * 0x10000),
 			Math.floor(Math.random() * 0x10000),
 			Math.floor(Math.random() * 0x10000)];
-	}
+	};
 
 	Battle.prototype.turn = 0;
 	Battle.prototype.p1 = null;
@@ -1817,7 +1813,7 @@ var Battle = (function() {
 			return relayVar;
 		}
 		if (target.ignore && target.ignore[effect.effectType]) {
-			this.debug(eventid+' handler suppressed by Klutz or Magic Room');
+			this.debug(eventid+' handler suppressed by Gastro Acid, Klutz or Magic Room');
 			return relayVar;
 		}
 		if (target.ignore && target.ignore[effect.effectType+'Target']) {
@@ -2024,7 +2020,7 @@ var Battle = (function() {
 				}
 			} else if (thing.ignore && thing.ignore[status.effectType]) {
 				if (eventid !== 'ModifyPokemon' && eventid !== 'Update') {
-					this.debug(eventid+' handler suppressed by Klutz or Magic Room');
+					this.debug(eventid+' handler suppressed by Gastro Acid, Klutz or Magic Room');
 				}
 				continue;
 			}
@@ -2467,7 +2463,7 @@ var Battle = (function() {
 		this.addQueue({pokemon: pokemon, choice: 'runSwitch'});
 		return true;
 	};
-	Battle.prototype.swapPosition = function(source, newPos) {
+	Battle.prototype.swapPosition = function(source, newPos, from) {
 		var target = source.side.active[newPos];
 		if (target.fainted) return false;
 		var side = source.side;
@@ -2477,7 +2473,7 @@ var Battle = (function() {
 		side.active[newPos] = side.pokemon[newPos];
 		target.position = source.position;
 		source.position = newPos;
-		this.add('swap', source, target);
+		this.add('swap', source, target, (from ? '[from] ' + from : ''));
 		return true;
 	};
 	Battle.prototype.faint = function(pokemon, source, effect) {
@@ -2919,7 +2915,11 @@ var Battle = (function() {
 			baseDamage = this.modify(baseDamage, move.stab || 1.5);
 		}
 		// types
-		var totalTypeMod = this.getEffectiveness(move, target, pokemon);
+		var totalTypeMod = 0;
+
+		if (target.negateImmunity[move.type] !== 'IgnoreEffectiveness' || this.getImmunity(move.type, target)) {
+			totalTypeMod = this.getEffectiveness(move, target, pokemon);
+		}
 
 		totalTypeMod = clampIntRange(totalTypeMod, -3, 3);
 		if (totalTypeMod > 0) {
@@ -3205,6 +3205,8 @@ var Battle = (function() {
 		return false;
 	};
 	Battle.prototype.runDecision = function(decision) {
+		var pokemon;
+
 		// returns whether or not we ended in a callback
 		switch (decision.choice) {
 		case 'start':
@@ -3220,11 +3222,11 @@ var Battle = (function() {
 				this.switchIn(this.p2.pokemon[pos], pos);
 			}
 			for (var pos=0; pos<this.p1.pokemon.length; pos++) {
-				var pokemon = this.p1.pokemon[pos];
+				pokemon = this.p1.pokemon[pos];
 				this.singleEvent('Start', this.getEffect(pokemon.species), pokemon.speciesData, pokemon);
 			}
 			for (var pos=0; pos<this.p2.pokemon.length; pos++) {
-				var pokemon = this.p2.pokemon[pos];
+				pokemon = this.p2.pokemon[pos];
 				this.singleEvent('Start', this.getEffect(pokemon.species), pokemon.speciesData, pokemon);
 			}
 			this.midTurn = true;
@@ -3272,7 +3274,7 @@ var Battle = (function() {
 			}
 
 			if (i == 0) return;
-			var pokemon = decision.side.pokemon[i];
+			pokemon = decision.side.pokemon[i];
 			if (!pokemon) return;
 			decision.side.pokemon[i] = decision.side.pokemon[0];
 			decision.side.pokemon[0] = pokemon;
@@ -3775,7 +3777,7 @@ var Battle = (function() {
 		case 'join':
 			var team = null;
 			try {
-				if (more) team = JSON.parse(more);
+				if (more) team = Tools.fastUnpackTeam(more);
 			} catch (e) {
 				console.log('TEAM PARSE ERROR: '+more);
 				team = null;
@@ -3854,7 +3856,7 @@ var Battle = (function() {
 						p1team: this.p1.team,
 						p2team: this.p2.team,
 						log: this.log
-					}
+					};
 					this.send('log', JSON.stringify(log));
 				}
 				this.send('winupdate', [this.winner].concat(this.log.slice(logPos)));

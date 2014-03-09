@@ -263,6 +263,17 @@ exports.BattleScripts = {
                   this.modData('Learnsets', 'xerneas').learnset.leafstorm = ['6L100'];
                   this.modData('Learnsets', 'xerneas').learnset.gigadrain = ['6M'];
                   this.modData('Learnsets', 'xerneas').learnset.recover = ['6T'];
+
+                  this.modData('Learnsets', 'diancie').learnset.wish = ['6L65'];
+                  this.modData('Learnsets', 'diancie').learnset.curse = ['6L77'];
+                  this.modData('Learnsets', 'diancie').learnset.playrough = ['6L25'];
+                  this.modData('Learnsets', 'diancie').learnset.curse = ['6L15'];
+                  this.modData('Learnsets', 'diancie').learnset.powergem = ['6L78'];
+
+
+                  this.modData('Learnsets', 'floetteeternalflower').learnset.healingwish = ['6L75'];
+                  this.modData('Learnsets', 'floetteeternalflower').learnset.batonpass = ['6L35'];
+
                   //move tutors
                   
                   //brave bird

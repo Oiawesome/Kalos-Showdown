@@ -112,7 +112,9 @@ module.exports = (function () {
 	};
 	Tools.prototype.modData = function(dataType, id) {
 		if (this.isBase) return this.data[dataType][id];
-		if (this.data[dataType][id] !== moddedTools.base.data[dataType][id]) return this.data[dataType][id];
+		var parentMod = this.data.Scripts.inherit;
+		if (!parentMod) parentMod = 'base';
+		if (this.data[dataType][id] !== moddedTools[parentMod].data[dataType][id]) return this.data[dataType][id];
 		return this.data[dataType][id] = Object.clone(this.data[dataType][id], true);
 	};
 
@@ -468,16 +470,17 @@ module.exports = (function () {
 					banlistTable[toId(subformat.banlist[i])] = subformat.name || true;
 
 					var plusPos = subformat.banlist[i].indexOf('+');
+					var complexList;
 					if (plusPos && plusPos > 0) {
 						var plusPlusPos = subformat.banlist[i].indexOf('++');
 						if (plusPlusPos && plusPlusPos > 0) {
-							var complexList = subformat.banlist[i].split('++');
+							complexList = subformat.banlist[i].split('++');
 							for (var j=0; j<complexList.length; j++) {
 								complexList[j] = toId(complexList[j]);
 							}
 							format.teamBanTable.push(complexList);
 						} else {
-							var complexList = subformat.banlist[i].split('+');
+							complexList = subformat.banlist[i].split('+');
 							for (var j=0; j<complexList.length; j++) {
 								complexList[j] = toId(complexList[j]);
 							}
@@ -623,6 +626,206 @@ module.exports = (function () {
 
 		return false;
 	};
+
+	Tools.prototype.packTeam = function(team) {
+		if (!team) return '';
+
+		var buf = '';
+
+		for (var i=0; i<team.length; i++) {
+			var set = team[i];
+			if (buf) buf += ']';
+
+			// name
+			buf += (set.name || set.species);
+
+			// species
+			var id = toId(set.species || set.name);
+			buf += '|' + (toId(set.name || set.species) === id ? '' : id);
+
+			// item
+			buf += '|' + toId(set.item);
+
+			// ability
+			var template = moddedTools.base.getTemplate(set.species || set.name);
+			var abilities = template.abilities;
+			id = toId(set.ability);
+			if (abilities) {
+				if (id == toId(abilities['0'])) {
+					buf += '|';
+				} else if (id === toId(abilities['1'])) {
+					buf += '|1';
+				} else if (id === toId(abilities['H'])) {
+					buf += '|H';
+				} else {
+					buf += '|' + id;
+				}
+			} else {
+				buf += '|' + id;
+			}
+
+			// moves
+			buf += '|' + set.moves.map(toId).join(',');
+
+			// nature
+			buf += '|' + set.nature;
+
+			// evs
+			var evs = '|';
+			if (set.evs) {
+				evs = '|' + (set.evs['hp']||'') + ',' + (set.evs['atk']||'') + ',' + (set.evs['def']||'') + ',' + (set.evs['spa']||'') + ',' + (set.evs['spd']||'') + ',' + (set.evs['spe']||'');
+			}
+			if (evs === '|,,,,,') {
+				buf += '|';
+			} else {
+				buf += evs;
+			}
+
+			// gender
+			if (set.gender && set.gender !== template.gender) {
+				buf += '|'+set.gender;
+			} else {
+				buf += '|'
+			}
+
+			// ivs
+			var ivs = '|';
+			if (set.ivs) {
+				ivs = '|' + (set.ivs['hp']===31||set.ivs['hp']===undefined ? '' : set.ivs['hp']) + ',' + (set.ivs['atk']===31||set.ivs['atk']===undefined ? '' : set.ivs['atk']) + ',' + (set.ivs['def']===31||set.ivs['def']===undefined ? '' : set.ivs['def']) + ',' + (set.ivs['spa']===31||set.ivs['spa']===undefined ? '' : set.ivs['spa']) + ',' + (set.ivs['spd']===31||set.ivs['spd']===undefined ? '' : set.ivs['spd']) + ',' + (set.ivs['spe']===31||set.ivs['spe']===undefined ? '' : set.ivs['spe']);
+			}
+			if (ivs === '|,,,,,') {
+				buf += '|';
+			} else {
+				buf += ivs;
+			}
+
+			// shiny
+			if (set.shiny) {
+				buf += '|S';
+			} else {
+				buf += '|'
+			}
+
+			// level
+			if (set.level && set.level != 100) {
+				buf += '|'+set.level;
+			} else {
+				buf += '|'
+			}
+
+			// happiness
+			if (set.happiness !== undefined && set.happiness !== 255) {
+				buf += '|'+set.happiness;
+			} else {
+				buf += '|';
+			}
+		}
+
+		return buf;
+	};
+
+	Tools.prototype.fastUnpackTeam = function(buf) {
+		if (!buf) return null;
+
+		var team = [];
+		var i = 0, j = 0;
+
+		while (true) {
+			var set = {};
+			team.push(set);
+
+			// name
+			j = buf.indexOf('|', i);
+			set.name = buf.substring(i, j);
+			i = j+1;
+
+			// species
+			j = buf.indexOf('|', i);
+			set.species = buf.substring(i, j) || set.name;
+			i = j+1;
+
+			// item
+			j = buf.indexOf('|', i);
+			set.item = buf.substring(i, j);
+			i = j+1;
+
+			// ability
+			j = buf.indexOf('|', i);
+			var ability = buf.substring(i, j);
+			var template = moddedTools.base.getTemplate(set.species);
+			set.ability = (template.abilities && ability in {'':1, 0:1, 1:1, H:1} ? template.abilities[ability||'0'] : ability);
+			i = j+1;
+
+			// moves
+			j = buf.indexOf('|', i);
+			set.moves = buf.substring(i, j).split(',');
+			i = j+1;
+
+			// nature
+			j = buf.indexOf('|', i);
+			set.nature = buf.substring(i, j);
+			i = j+1;
+
+			// evs
+			j = buf.indexOf('|', i);
+			if (j !== i) {
+				var evs = buf.substring(i, j).split(',');
+				set.evs = {
+					hp: Number(evs[0])||0,
+					atk: Number(evs[1])||0,
+					def: Number(evs[2])||0,
+					spa: Number(evs[3])||0,
+					spd: Number(evs[4])||0,
+					spe: Number(evs[5])||0
+				};
+			}
+			i = j+1;
+
+			// gender
+			j = buf.indexOf('|', i);
+			if (i !== j) set.gender = buf.substring(i, j);
+			i = j+1;
+
+			// ivs
+			j = buf.indexOf('|', i);
+			if (j !== i) {
+				var ivs = buf.substring(i, j).split(',');
+				set.ivs = {
+					hp: ivs[0]==='' ? 31 : Number(ivs[0]),
+					atk: ivs[1]==='' ? 31 : Number(ivs[1]),
+					def: ivs[2]==='' ? 31 : Number(ivs[2]),
+					spa: ivs[3]==='' ? 31 : Number(ivs[3]),
+					spd: ivs[4]==='' ? 31 : Number(ivs[4]),
+					spe: ivs[5]==='' ? 31 : Number(ivs[5])
+				};
+			}
+			i = j+1;
+
+			// shiny
+			j = buf.indexOf('|', i);
+			if (i !== j) set.shiny = true;
+			i = j+1;
+
+			// level
+			j = buf.indexOf('|', i);
+			if (i !== j) set.level = parseInt(buf.substring(i, j), 10);
+			i = j+1;
+
+			// happiness
+			j = buf.indexOf(']', i);
+			if (j < 0) {
+				if (buf.substring(i)) {
+					set.happiness = Number(buf.substring(i));
+				}
+				break;
+			}
+			if (i !== j) set.happiness = Number(buf.substring(i, j));
+			i = j+1;
+		}
+
+		return team;
+	};
+
 	/**
 	 * Install our Tools functions into the battle object
 	 */
@@ -638,7 +841,12 @@ module.exports = (function () {
 		var ret = Object.create(tools);
 		tools.install(ret);
 		if (ret.init) {
-			ret.init();
+			if (parentMod && ret.init === moddedTools[parentMod].data.Scripts.init) {
+				// don't inherit init
+				delete ret.init;
+			} else {
+				ret.init();
+			}
 		}
 		return ret;
 	};

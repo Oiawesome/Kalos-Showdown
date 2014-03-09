@@ -173,7 +173,7 @@ var commands = exports.commands = {
 	},
 
 	privateroom: function(target, room, user) {
-		if (!this.can('privateroom')) return;
+		if (!this.can('privateroom', null, room)) return;
 		if (target === 'off') {
 			delete room.isPrivate;
 			this.addModCommand(user.name+' made this room public.');
@@ -347,7 +347,7 @@ var commands = exports.commands = {
 	},
 
 	autojoin: function(target, room, user, connection) {
-		Rooms.global.autojoinRooms(user, connection)
+		Rooms.global.autojoinRooms(user, connection);
 	},
 
 	join: function(target, room, user, connection) {
@@ -363,8 +363,6 @@ var commands = exports.commands = {
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '"+target+"' could not be joined.");
 		}
-		if (target.toLowerCase() == "lobby") 
-                this.sendReply('|raw| <img src="http://www.serebii.net/pokedex-xy/icon/003-m.png"><b>Welcome To Kalos!</b><img src="http://www.serebii.net/pokedex-xy/icon/003-m.png">\n|c|~KalosBot|Dont forget to check out this servers custom client !! http://kalos.no-ip.biz !! if you can, it includes amazing features like a custom teambuilder made for kalos 2 (if you dont play kalos 2 then try to just make teams on another server then import them to the custom client)');
 	},
 
 	rb: 'roomban',
@@ -386,7 +384,7 @@ var commands = exports.commands = {
 		for (var ip in targetUser.ips) {
 			room.bannedIps[ip] = true;
 		}
-		targetUser.popup(user.name+" has banned you from the room " + room.id + "." + (target ? " (" + target + ")" : ""));
+		targetUser.popup(user.name+" has banned you from the room " + room.id + ". To appeal the ban, PM the moderator that banned you or a room owner." + (target ? " (" + target + ")" : ""));
 		this.addModCommand(""+targetUser.name+" was banned from room " + room.id + " by "+user.name+"." + (target ? " (" + target + ")" : ""));
 		var alts = targetUser.getAlts();
 		if (alts.length) {
@@ -456,6 +454,8 @@ var commands = exports.commands = {
 	 * Moderating: Punishments
 	 *********************************************************/
 
+	kick: 'warn',
+	k: 'warn',
 	warn: function(target, room, user) {
 		if (!target) return this.parse('/help warn');
 
@@ -474,6 +474,7 @@ var commands = exports.commands = {
 
 		this.addModCommand(''+targetUser.name+' was warned by '+user.name+'.' + (target ? " (" + target + ")" : ""));
 		targetUser.send('|c|~|/warn '+target);
+		this.add('|unlink|' + targetUser.userid);
 	},
 
 	redirect: 'redir',
@@ -496,7 +497,7 @@ var commands = exports.commands = {
 			return this.sendReply('User '+this.targetUsername+' is not in the room ' + room.id + '.');
 		}
 		if (targetUser.joinRoom(target) === false) return this.sendReply('User "' + targetUser.name + '" could not be joined to room ' + target + '. They could be banned from the room.');
-		var roomName = (targetRoom.isPrivate)? 'a private room' : 'room ' + target;
+		var roomName = (targetRoom.isPrivate)? 'a private room' : 'room ' + targetRoom.title;
 		this.addModCommand(targetUser.name + ' was redirected to ' + roomName + ' by ' + user.name + '.');
 		targetUser.leaveRoom(room);
 	},
@@ -529,23 +530,6 @@ var commands = exports.commands = {
 		this.add('|unlink|' + targetUser.userid);
 
 		targetUser.mute(room.id, 7*60*1000);
-	},
-
-
-	slap: function(target, room, user) {
-		if (!target) return this.parse('/help mute');
-
-		target = this.splitTarget(target);
-		var targetUser = this.targetUser;
-		if (!targetUser) {
-			return this.sendReply('User '+this.targetUsername+' not found.');
-		}
-		if (target.length > MAX_REASON_LENGTH) {
-			return this.sendReply('The reason is too long. It cannot exceed ' + MAX_REASON_LENGTH + ' characters.');
-		}
-		if (!this.canBroadcast()) return;
-                targetUser.popup(user.name+' has slapped you silly for the following reason: '+target);
-		this.addModCommand(''+targetUser.name+' has been slapped silly by a large trout by '+user.name+'' + (target ? " (" + target + ")" : ""));
 	},
 
 	hm: 'hourmute',
@@ -1179,6 +1163,10 @@ var commands = exports.commands = {
 			Sockets.workers[i].kill();
 		}
 
+		if (!room.destroyLog) {
+			process.exit();
+			return;
+		}
 		room.destroyLog(function() {
 			room.logEntry(user.name + ' used /kill');
 		}, function() {
@@ -1522,15 +1510,30 @@ var commands = exports.commands = {
 	timer: function(target, room, user) {
 		target = toId(target);
 		if (room.requestKickInactive) {
-			if (target === 'off' || target === 'stop') {
+			if (target === 'off' || target === 'false' || target === 'stop') {
 				room.stopKickInactive(user, user.can('timer'));
-			} else if (target === 'on' || !target) {
+			} else if (target === 'on' || target === 'true' || !target) {
 				room.requestKickInactive(user, user.can('timer'));
 			} else {
 				this.sendReply("'"+target+"' is not a recognized timer state.");
 			}
 		} else {
 			this.sendReply('You can only set the timer from inside a room.');
+		}
+	},
+
+	autotimer: 'forcetimer',
+	forcetimer: function(target, room, user) {
+		target = toId(target);
+		if (!this.can('autotimer')) return;
+		if (target === 'off' || target === 'false' || target === 'stop') {
+			config.forcetimer = false;
+			this.addModCommand("Forcetimer is now OFF: The timer is now opt-in. (set by "+user.name+")");
+		} else if (target === 'on' || target === 'true' || !target) {
+			config.forcetimer = true;
+			this.addModCommand("Forcetimer is now ON: All battles will be timed. (set by "+user.name+")");
+		} else {
+			this.sendReply("'"+target+"' is not a recognized forcetimer setting.");
 		}
 	},
 

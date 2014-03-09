@@ -238,7 +238,11 @@ exports.BattleMovedex = {
 		onHit: function(target) {
 			this.useMove('earthquake', target);
 		}
-	},       
+	},    
+ 	"lightofruin": {
+		inherit: true,
+		recoil: [33,100]
+	},    
         "crosschop": {
                 num: 238,
                 accuracy: 95,

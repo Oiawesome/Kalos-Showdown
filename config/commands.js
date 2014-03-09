@@ -241,10 +241,7 @@ var commands = exports.commands = {
 	 * Informational commands
 	 *********************************************************/
 
-	stats: 'data',
-	dex: 'data',
-	pokedex: 'data',
-	data: function(target, room, user) {
+	olddata: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 
 		var data = '';
@@ -256,6 +253,69 @@ var commands = exports.commands = {
 					data = "No Pokemon, item, move or ability named '" + target + "' was found. Showing the data of '" + newTargets[0].name + "' instead.\n";
 				}
 				data += '|c|~|/data-' + newTargets[i].searchType + ' ' + newTargets[i].name + '\n';
+			}
+		} else {
+			data = "No Pokemon, item, move or ability named '" + target + "' was found. (Check your spelling?)";
+		}
+
+		this.sendReply(data);
+	},
+
+	stats: 'data',
+	dex: 'data',
+	pokedex: 'data',
+	data: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		
+		function getAbilities(poke) {
+			if (!poke.abilities) return;
+			var abilities = new Array();
+			for (var i in poke.abilities) {
+				if (i === 'H') {
+					abilities.push(poke.abilities[i]);
+				} else {
+					abilities.push(poke.abilities[i]);
+				}
+			}
+			return abilities.join('/');
+		}
+		
+		function getStats(poke) {
+			var baseStats = poke.baseStats;
+			if (!baseStats) return;
+			var text = '';
+			text += baseStats['hp'] + ' HP/';
+			text += baseStats['atk'] + ' Atk/';
+			text += baseStats['def'] + ' Def/';
+			text += baseStats['spa'] + ' SpA/';
+			text += baseStats['spd'] + ' SpD/';
+			text += baseStats['spe'] + ' Spe';
+			return text;
+		}
+		
+		function getBST(poke) {
+			var baseStats = poke.baseStats;
+			if (!baseStats) return;
+			var BST = 0;
+			for (var i in baseStats) {
+				BST += baseStats[i];
+			}
+			return BST;
+		}
+
+		var data = '';
+		var targetId = toId(target);
+		var newTargets = Tools.mod('kalos2').dataSearch(target);
+		if (newTargets && newTargets.length) {
+			for (var i = 0; i < newTargets.length; i++) {
+				if (newTargets[i].id !== targetId && !Tools.data.Aliases[targetId] && !i) {
+					data = "No Pokemon, item, move or ability named '" + target + "' was found. Showing the data of '" + newTargets[0].name + "' instead.\n";
+				}
+				if (newTargets[i].searchType === 'pokemon' && !Tools.data.Pokedex[newTargets[i].id]) {
+					data += '|c|~KalosBot|'+ '' + newTargets[i].name + ' - ' + newTargets[i].types.join('/') + ' | Abilities: ' + getAbilities(newTargets[i]) + ' | Stats:' + getStats(newTargets[i]) + ' | ' + getBST(newTargets[i]) + ' BST';
+				} else {
+					data += '|c|~KalosBot|'+ '' + newTargets[i].name + ' - ' + newTargets[i].types.join('/') + ' | Abilities: ' + getAbilities(newTargets[i]) + ' | Stats:' + getStats(newTargets[i]) + ' | ' + getBST(newTargets[i]) + ' BST';
+				}
 			}
 		} else {
 			data = "No Pokemon, item, move or ability named '" + target + "' was found. (Check your spelling?)";
@@ -708,6 +768,7 @@ this.sendReply("User " + targetUser.name + " is no longer using that name.");
 		if (!target || target === 'all') {
 			matched = true;
 			buffer += '- <a href="http://www.smogon.com/forums/forums/206/">Information on the Other Metagames</a><br />';
+                        buffer += '- <a href="http://othermetas.weebly.com/">Other Metagames unnoficial website</a><br />';
 		}
 		if (target === 'all' || target === 'hackmons') {
 			matched = true;
@@ -716,6 +777,8 @@ this.sendReply("User " + targetUser.name + " is no longer using that name.");
 		if (target === 'all' || target === 'balancedhackmons' || target === 'bh') {
 			matched = true;
 			buffer += '- <a href="http://www.smogon.com/forums/threads/3463764/">Balanced Hackmons</a><br />';
+                        buffer += '- <a href="http://www.smogon.com/forums/threads/3499973/">Balanced Hackmons Mentoring Program</a><br />';
+                        buffer += '- <a href="http://www.othermetas.weebly.com/balanced-hackmons-xy">Balanced Hackmons website page</a><br />';
 		}
 		if (target === 'all' || target === 'glitchmons') {
 			matched = true;
@@ -811,61 +874,9 @@ this.sendReply("User " + targetUser.name + " is no longer using that name.");
 		this.sendReply('|c|~KalosBot|http://en.wikipedia.org/wiki/'+target+'');
 	},
 
-	k2stats: 'k2data',
-	k2dex: 'k2data',
-	k2pokedex: 'k2data',
-	k2data: function(target, room, user) {
+	define: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		
-		function getAbilities(poke) {
-			if (!poke.abilities) return;
-			var abilities = new Array();
-			for (var i in poke.abilities) {
-				if (i === 'H') {
-					abilities.push('<i>'+poke.abilities[i]+'</i>');
-				} else {
-					abilities.push(poke.abilities[i]);
-				}
-			}
-			return abilities.join(' | ');
-		}
-		
-		function getStats(poke) {
-			var baseStats = poke.baseStats;
-			if (!baseStats) return;
-			var text = '';
-			text += baseStats['hp'] + ' HP | ';
-			text += baseStats['atk'] + ' Att | ';
-			text += baseStats['def'] + ' Def | ';
-			text += baseStats['spa'] + ' SpA | ';
-			text += baseStats['spd'] + ' SpD | ';
-			text += baseStats['spe'] + ' Spe';
-			return text;
-		}
-		
-		function getBST(poke) {
-			var baseStats = poke.baseStats;
-			if (!baseStats) return;
-			var BST = 0;
-			for (var i in baseStats) {
-				BST += baseStats[i];
-			}
-			return '<b>'+BST+'</b>';
-		}
-
-		var k2data = '';
-		newTargets = Tools.mod('kalos2').dataSearch(target);
-		if (newTargets && newTargets.length) {
-			for (var i = 0; i < newTargets.length; i++) {
-				if (newTargets[i].id !== targetId && !Tools.data.Aliases[targetId] && !i) {
-					k2data = "No Pokemon, item, move or ability named '" + target + "' was found. Showing the data of '" + newTargets[0].name + "' instead.\n";
-				}
-				if (newTargets[i].searchType === 'pokemon' && !Tools.data.Pokedex[newTargets[i].id]) {
-					k2data += '|c|~KalosBot|' + '' + newTargets[i].name + '|' + newTargets[i].types.join(' / ') + ' Abilities:' + getAbilities(newTargets[i]) + 'Stats:' + getStats(newTargets[i]) + '<br><b>BST:</b> ' + getBST(newTargets[i]) + '</div>';
-		} else {
-			k2data = "No Pokemon, item, move or ability named '" + target + "' was found. (Check your spelling?)";
-		}
-		this.sendReply(k2data);
+		this.sendReply('|c|~KalosBot|https://www.google.com/search?q=define+amazing&oq=define+'+target+'');
 	},
 
         ls: 'leafshield',
